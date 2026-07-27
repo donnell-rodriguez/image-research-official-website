@@ -1,0 +1,172 @@
+@media (max-width: 920px) {
+  .site-header {
+    gap: 16px;
+  }
+
+  .site-shell:not(.home-shell) main {
+    padding-top: 72px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-text {
+    max-width: min(56vw, 330px);
+    font-size: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .icon-button {
+    display: inline-flex;
+  }
+
+  .nav {
+    position: absolute;
+    top: 72px;
+    right: 18px;
+    left: 18px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--white);
+    padding: 10px;
+    box-shadow: 0 18px 40px rgba(10, 25, 47, 0.16);
+  }
+
+  .site-header.header-scrolled .nav {
+    border-color: rgba(154, 242, 31, 0.18);
+    background: rgba(7, 17, 9, 0.96);
+  }
+
+  .nav-open {
+    display: flex;
+  }
+
+  .hero-section,
+  .split-section,
+  .product-section,
+  .page-hero,
+  .career-intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-media {
+    min-height: 340px;
+  }
+
+  .hero-copy {
+    padding: 42px 24px 54px;
+  }
+
+  .card-grid.three,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .article-card h3,
+  .article-card p {
+    min-height: 0;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 920px) {
+  .card-grid.three,
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-grid .contact-panel:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-header {
+    min-height: 68px;
+    padding: 12px 16px;
+  }
+
+  .site-shell:not(.home-shell) main {
+    padding-top: 68px;
+  }
+
+  .site-header-inner {
+    min-height: 44px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .brand-text {
+    max-width: 58vw;
+    font-size: 16px;
+  }
+
+  .nav {
+    top: 66px;
+    right: 12px;
+    left: 12px;
+  }
+
+  .hero-media {
+    min-height: 260px;
+  }
+
+  .hero-copy,
+  .section,
+  .page-hero,
+  .article-page {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .hero-copy h1,
+  .page-hero h1,
+  .medicare-hero h1 {
+    font-size: 34px;
+  }
+
+  .hero-copy p,
+  .page-hero p,
+  .medicare-hero p {
+    font-size: 16px;
+  }
+
+  .hero-actions,
+  .job-meta,
+  .career-apply-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .button,
+  .job-meta span {
+    width: 100%;
+  }
+
+  .feature-item,
+  .numbered-list li {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-icon,
+  .numbered-list li::before {
+    width: 42px;
+    height: 42px;
+  }
+
+  .rich-content {
+    font-size: 16px;
+  }
+
+}

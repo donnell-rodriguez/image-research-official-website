@@ -1,0 +1,268 @@
+:root {
+  --decor-circle-soft: rgba(20, 20, 20, 0.045);
+  --decor-circle-line: rgba(88, 189, 25, 0.12);
+  --decor-circle-glow: rgba(154, 242, 31, 0.12);
+}
+
+.latest-section,
+.home-video-section,
+.products-overview-section,
+.partners-band,
+.home-contact-band,
+.newsroom-page,
+.newsroom-article-page,
+.career-section,
+.career-page-section,
+.about-story-section,
+.about-capability-section,
+.about-leadership-section,
+.about-faq-section,
+.template-shell:not(.template-shell-full) {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.latest-section > *,
+.home-video-section > *,
+.products-overview-section > *,
+.partners-band > *,
+.home-contact-band > *,
+.newsroom-page > *,
+.newsroom-article-page > *,
+.career-section > *,
+.career-page-section > *,
+.about-story-section > *,
+.about-capability-section > *,
+.about-leadership-section > *,
+.about-faq-section > *,
+.template-shell:not(.template-shell-full) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home-shell .product-section.projects-section::after,
+.services-section::before,
+.latest-section::before,
+.latest-section::after,
+.home-video-section::before,
+.products-overview-section::before,
+.products-overview-section::after,
+.partners-band::before,
+.home-contact-band::before,
+.newsroom-page::before,
+.newsroom-page::after,
+.newsroom-article-page::before,
+.career-section::before,
+.career-page-section::before,
+.about-story-section::before,
+.about-capability-section::before,
+.about-leadership-section::before,
+.about-leadership-section::after,
+.about-faq-section::before,
+.template-shell:not(.template-shell-full)::before {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.home-shell .product-section.projects-section::after {
+  top: 50%;
+  left: 42%;
+  width: clamp(260px, 23vw, 360px);
+  height: clamp(260px, 23vw, 360px);
+  background:
+    radial-gradient(circle at 56% 48%, rgba(255, 255, 255, 0.18), transparent 58%),
+    var(--decor-circle-soft);
+  transform: translate(-50%, -50%);
+}
+
+.services-section {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.services-section .split-copy,
+.services-section .feature-list {
+  position: relative;
+  z-index: 1;
+}
+
+.services-section::before {
+  top: 18px;
+  left: 47%;
+  width: clamp(250px, 24vw, 390px);
+  height: clamp(250px, 24vw, 390px);
+  background:
+    radial-gradient(circle at 62% 26%, var(--decor-circle-glow), transparent 42%),
+    var(--decor-circle-soft);
+}
+
+.latest-section::before {
+  top: 68px;
+  right: max(-120px, calc((100vw - var(--site-content-width)) / 2 - 170px));
+  width: clamp(230px, 22vw, 360px);
+  height: clamp(230px, 22vw, 360px);
+  border: 1px solid var(--decor-circle-line);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.latest-section::after {
+  bottom: 22px;
+  left: max(-128px, calc((100vw - var(--site-content-width)) / 2 - 180px));
+  width: clamp(210px, 20vw, 330px);
+  height: clamp(210px, 20vw, 330px);
+  background: var(--decor-circle-soft);
+}
+
+.home-video-section::before {
+  right: max(24px, calc((100vw - var(--site-content-width)) / 2 + 42px));
+  bottom: clamp(36px, 5vw, 80px);
+  width: clamp(150px, 13vw, 230px);
+  height: clamp(150px, 13vw, 230px);
+  background: rgba(88, 189, 25, 0.055);
+  box-shadow: 0 0 0 1px rgba(88, 189, 25, 0.08) inset;
+}
+
+.products-overview-section::before {
+  top: 38px;
+  left: max(-100px, calc((100vw - var(--site-content-width)) / 2 - 160px));
+  width: clamp(240px, 21vw, 360px);
+  height: clamp(240px, 21vw, 360px);
+  background: var(--decor-circle-soft);
+}
+
+.products-overview-section::after {
+  right: max(8px, calc((100vw - var(--site-content-width)) / 2 + 18px));
+  bottom: 72px;
+  width: clamp(160px, 15vw, 260px);
+  height: clamp(160px, 15vw, 260px);
+  border: 1px solid rgba(88, 189, 25, 0.1);
+  background: rgba(154, 242, 31, 0.045);
+}
+
+.partners-band::before {
+  top: -130px;
+  left: 50%;
+  width: clamp(280px, 26vw, 440px);
+  height: clamp(280px, 26vw, 440px);
+  background: rgba(255, 255, 255, 0.42);
+  transform: translateX(-50%);
+}
+
+.home-contact-band::before {
+  right: max(-86px, calc((100vw - var(--site-content-width)) / 2 - 118px));
+  bottom: 30px;
+  width: clamp(220px, 20vw, 340px);
+  height: clamp(220px, 20vw, 340px);
+  border: 1px solid rgba(88, 189, 25, 0.08);
+  background: rgba(88, 189, 25, 0.035);
+}
+
+.newsroom-page::before {
+  top: 38px;
+  right: max(-130px, calc((100vw - var(--site-content-width)) / 2 - 170px));
+  width: clamp(260px, 24vw, 420px);
+  height: clamp(260px, 24vw, 420px);
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.newsroom-page::after {
+  bottom: 16%;
+  left: max(-128px, calc((100vw - var(--site-content-width)) / 2 - 190px));
+  width: clamp(210px, 19vw, 320px);
+  height: clamp(210px, 19vw, 320px);
+  background: rgba(88, 189, 25, 0.04);
+  box-shadow: 0 0 0 1px rgba(88, 189, 25, 0.075) inset;
+}
+
+.newsroom-article-page::before {
+  top: 12px;
+  right: max(-120px, calc((100vw - var(--site-content-width)) / 2 - 150px));
+  width: clamp(240px, 22vw, 380px);
+  height: clamp(240px, 22vw, 380px);
+  background: rgba(245, 245, 247, 0.9);
+}
+
+.career-section::before,
+.career-page-section::before,
+.template-shell:not(.template-shell-full)::before {
+  top: 48px;
+  right: max(-100px, calc((100vw - var(--site-content-width)) / 2 - 130px));
+  width: clamp(220px, 19vw, 330px);
+  height: clamp(220px, 19vw, 330px);
+  background: rgba(88, 189, 25, 0.04);
+  box-shadow: 0 0 0 1px rgba(88, 189, 25, 0.08) inset;
+}
+
+.about-story-section::before {
+  top: 46%;
+  left: max(-118px, calc((100vw - var(--site-content-width)) / 2 - 160px));
+  width: clamp(240px, 22vw, 380px);
+  height: clamp(240px, 22vw, 380px);
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-50%);
+}
+
+.about-capability-section::before {
+  top: -126px;
+  right: max(24px, calc((100vw - var(--site-content-width)) / 2 + 40px));
+  width: clamp(230px, 20vw, 340px);
+  height: clamp(230px, 20vw, 340px);
+  background: rgba(88, 189, 25, 0.04);
+}
+
+.about-leadership-section::before {
+  top: 18%;
+  right: max(-110px, calc((100vw - var(--site-content-width)) / 2 - 146px));
+  width: clamp(260px, 23vw, 390px);
+  height: clamp(260px, 23vw, 390px);
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.about-leadership-section::after {
+  bottom: 8%;
+  left: max(-110px, calc((100vw - var(--site-content-width)) / 2 - 146px));
+  width: clamp(180px, 15vw, 270px);
+  height: clamp(180px, 15vw, 270px);
+  background: rgba(88, 189, 25, 0.04);
+  box-shadow: 0 0 0 1px rgba(88, 189, 25, 0.08) inset;
+}
+
+.about-faq-section::before {
+  right: max(24px, calc((100vw - var(--site-content-width)) / 2 + 34px));
+  bottom: 36px;
+  width: clamp(150px, 13vw, 230px);
+  height: clamp(150px, 13vw, 230px);
+  background: rgba(255, 255, 255, 0.56);
+}
+
+@media (max-width: 760px) {
+  .home-shell .product-section.projects-section::after,
+  .services-section::before,
+  .latest-section::before,
+  .latest-section::after,
+  .products-overview-section::before,
+  .products-overview-section::after,
+  .partners-band::before,
+  .home-contact-band::before,
+  .newsroom-page::before,
+  .newsroom-page::after,
+  .newsroom-article-page::before,
+  .career-section::before,
+  .career-page-section::before,
+  .about-story-section::before,
+  .about-capability-section::before,
+  .about-leadership-section::before,
+  .about-leadership-section::after,
+  .about-faq-section::before,
+  .template-shell:not(.template-shell-full)::before {
+    opacity: 0.62;
+  }
+
+  .home-video-section::before {
+    display: none;
+  }
+}

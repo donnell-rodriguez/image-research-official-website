@@ -1,0 +1,219 @@
+/* Lightweight page motion */
+@keyframes advFadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 34px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes advSlideInUp {
+  from {
+    transform: translate3d(0, 24px, 0);
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes advFadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-34px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes advFadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(34px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes advZoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.96, 0.96, 1);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.site-header {
+  animation: advFadeInUp 520ms ease both;
+}
+
+.home-hero .eyebrow,
+.page-hero .eyebrow,
+.medicare-hero .eyebrow {
+  animation: advFadeInUp 650ms ease 80ms both;
+}
+
+.home-hero h1,
+.page-hero h1,
+.medicare-hero h1 {
+  animation: advFadeInUp 760ms ease 170ms both;
+}
+
+.home-hero .hero-actions,
+.page-hero p,
+.medicare-hero p {
+  animation: advFadeInUp 760ms ease 280ms both;
+}
+
+.home-hero .hero-actions {
+  animation-name: advSlideInUp;
+}
+
+.home-hero blockquote {
+  animation: advFadeInLeft 840ms ease 430ms both;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity 760ms ease var(--reveal-delay, 0ms),
+    transform 760ms ease var(--reveal-delay, 0ms),
+    box-shadow 220ms ease,
+    border-color 220ms ease,
+    background-color 220ms ease;
+}
+
+.reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.split-section .product-media.reveal-item,
+.product-section .product-media.reveal-item,
+.page-hero + .section .article-hero-image.reveal-item {
+  transform: scale3d(0.96, 0.96, 1);
+}
+
+.split-section .product-media.reveal-item.is-visible,
+.product-section .product-media.reveal-item.is-visible,
+.page-hero + .section .article-hero-image.reveal-item.is-visible {
+  transform: scale3d(1, 1, 1);
+}
+
+.article-card,
+.feature-item,
+.profile-card,
+.contact-panel,
+.sidebar-widget,
+.job-card,
+.imported-content .team-card,
+.imported-content .tech-card {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
+}
+
+.article-card:hover,
+.feature-item:hover,
+.profile-card:hover,
+.contact-panel:hover,
+.sidebar-widget:hover,
+.job-card:hover,
+.imported-content .team-card:hover,
+.imported-content .tech-card:hover {
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 18px 44px rgba(20, 33, 61, 0.12);
+}
+
+.article-card img,
+.product-media img,
+.product-media video,
+.article-hero-image,
+.recent-list img,
+.imported-content img {
+  transition: transform 420ms ease, filter 420ms ease;
+}
+
+.article-card:hover img,
+.product-media:hover img,
+.product-media:hover video,
+.recent-list a:hover img,
+.imported-content img:hover {
+  transform: scale3d(1.025, 1.025, 1);
+}
+
+.article-card {
+  isolation: isolate;
+}
+
+.article-card img,
+.article-card .image-fallback {
+  transform-origin: center;
+}
+
+.text-link,
+.nav a,
+.recent-list a,
+.category-link {
+  transition: color 170ms ease, transform 170ms ease;
+}
+
+.text-link:hover,
+.recent-list a:hover,
+.category-link:hover {
+  transform: translate3d(4px, 0, 0);
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+}
+
+.button::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.26), transparent);
+  transform: translate3d(-120%, 0, 0);
+  transition: transform 520ms ease;
+}
+
+.button:hover::after {
+  transform: translate3d(120%, 0, 0);
+}
+
+.nav-open {
+  animation: advFadeInUp 220ms ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}

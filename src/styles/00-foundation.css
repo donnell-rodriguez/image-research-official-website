@@ -1,0 +1,449 @@
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("/assets/fonts/montserrat-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --navy: #071109;
+  --ink: #18251a;
+  --muted: #627166;
+  --line: #dce8df;
+  --blue: #3aa52a;
+  --green: #58bd19;
+  --bg: #f5f9f4;
+  --page-bg: var(--bg);
+  --page-bg-soft: #eef7ee;
+  --page-bg-subtle: #f8fcf6;
+  --page-bg-elevated: #fbfdf9;
+  --white: #ffffff;
+  --brand-cta: #58bd19;
+  --brand-cta-bright: #9af21f;
+  --brand-tech: #1f9b18;
+  --brand-tech-bright: #8fee1a;
+  --brand-tech-line: #9af21f;
+  --brand-heading: #141a16;
+  --brand-heading-deep: #071109;
+  --brand-text: #000000;
+  --brand-copy: #303a32;
+  --brand-muted: #5f6b62;
+  --brand-dark: #000000;
+  --brand-light: #ffffff;
+  --button-bg: var(--brand-tech);
+  --button-color: var(--brand-light);
+  --button-border: transparent;
+  --site-content-width: 1210px;
+  --site-content-padding: clamp(18px, 5vw, 64px);
+  --font-body: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-accent: var(--font-body);
+  --font-copy: var(--font-body);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  background: var(--page-bg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--page-bg);
+}
+
+a {
+  color: inherit;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: var(--page-bg);
+}
+
+.site-shell:not(.home-shell) main {
+  padding-top: 78px;
+  background: var(--page-bg);
+}
+
+.site-shell.hero-header-shell:not(.home-shell) main {
+  padding-top: 0;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 80;
+  min-height: 78px;
+  padding: 0 var(--site-content-padding);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle at 24% 0%, rgba(154, 242, 31, 0.12), transparent 34%),
+    rgba(7, 17, 9, 0.28);
+  backdrop-filter: blur(4px);
+  color: var(--brand-light);
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  width: 100%;
+  max-width: var(--site-content-width);
+  min-height: 78px;
+  margin: 0 auto;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  min-width: 220px;
+  max-width: 100%;
+  text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: none;
+  color: var(--brand-light);
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.header-scrolled .brand-logo {
+  display: none;
+}
+
+.header-scrolled .brand-text {
+  display: inline-block;
+}
+
+.site-header.header-scrolled {
+  border-bottom-color: rgba(154, 242, 31, 0.14);
+  background:
+    radial-gradient(circle at 22% 0%, rgba(154, 242, 31, 0.16), transparent 34%),
+    linear-gradient(180deg, rgba(16, 24, 18, 0.88), rgba(7, 17, 9, 0.82));
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 34px rgba(7, 17, 9, 0.16);
+  color: var(--brand-light);
+}
+
+.site-header.header-scrolled .brand-text,
+.site-header.header-scrolled .nav a {
+  color: var(--brand-light);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav a {
+  position: relative;
+  border-radius: 0;
+  padding: 8px 2px;
+  color: var(--brand-light);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.nav a::after {
+  position: absolute;
+  right: 2px;
+  bottom: 0;
+  left: 2px;
+  height: 2px;
+  background: currentColor;
+  content: "";
+  opacity: 0;
+  transform: scaleX(0.42);
+  transform-origin: 50% 50%;
+  transition:
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.nav a:hover {
+  background: transparent;
+  color: var(--brand-cta-bright);
+}
+
+.nav a.active {
+  background: transparent;
+  color: var(--brand-cta-bright);
+}
+
+.nav a.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.icon-button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--white);
+  color: var(--navy);
+}
+
+.icon {
+  --icon-size: 24px;
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  color: currentColor;
+  vertical-align: -0.18em;
+}
+
+.icon::before,
+.icon::after {
+  position: absolute;
+  content: "";
+}
+
+.icon-svg {
+  position: static;
+  fill: currentColor;
+}
+
+.icon-arrow::before {
+  top: 22%;
+  right: 8%;
+  width: 42%;
+  height: 42%;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.icon-arrow::after {
+  top: calc(50% - 1px);
+  left: 9%;
+  width: 72%;
+  border-top: 2px solid currentColor;
+}
+
+.icon-menu::before {
+  top: 24%;
+  left: 16%;
+  width: 68%;
+  border-top: 2px solid currentColor;
+  box-shadow: 0 calc(var(--icon-size) * 0.26) 0 currentColor, 0 calc(var(--icon-size) * 0.52) 0 currentColor;
+}
+
+.icon-x::before,
+.icon-x::after {
+  top: 48%;
+  left: 16%;
+  width: 68%;
+  border-top: 2px solid currentColor;
+}
+
+.icon-x::before {
+  transform: rotate(45deg);
+}
+
+.icon-x::after {
+  transform: rotate(-45deg);
+}
+
+.icon-search::before {
+  top: 10%;
+  left: 10%;
+  width: 54%;
+  height: 54%;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-search::after {
+  right: 14%;
+  bottom: 16%;
+  width: 35%;
+  border-top: 2px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: right center;
+}
+
+.icon-pin::before {
+  top: 7%;
+  left: 27%;
+  width: 46%;
+  height: 46%;
+  border: 2px solid currentColor;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
+
+.icon-pin::after {
+  top: 24%;
+  left: 43%;
+  width: 14%;
+  height: 14%;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.icon-phone::before {
+  inset: 16% 28%;
+  border: 2px solid currentColor;
+  border-radius: 999px;
+  transform: rotate(-28deg);
+}
+
+.icon-phone::after {
+  right: 20%;
+  bottom: 16%;
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.icon-mail::before {
+  inset: 18% 10%;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.icon-mail::after {
+  top: 26%;
+  left: 18%;
+  width: 64%;
+  height: 40%;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.icon-calendar::before {
+  inset: 14% 10% 10%;
+  border: 2px solid currentColor;
+  border-radius: 3px;
+}
+
+.icon-calendar::after {
+  top: 34%;
+  left: 12%;
+  width: 76%;
+  border-top: 2px solid currentColor;
+}
+
+.icon-building::before {
+  inset: 8% 22% 10%;
+  border: 2px solid currentColor;
+  border-radius: 3px 3px 0 0;
+}
+
+.icon-building::after {
+  top: 26%;
+  left: 34%;
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  box-shadow: 10px 0 0 currentColor, 0 11px 0 currentColor, 10px 11px 0 currentColor;
+}
+
+.icon-shield::before {
+  inset: 6% 16% 10%;
+  border: 2px solid currentColor;
+  clip-path: polygon(50% 0, 100% 18%, 86% 78%, 50% 100%, 14% 78%, 0 18%);
+}
+
+.icon-pulse::before {
+  top: 50%;
+  left: 7%;
+  width: 86%;
+  border-top: 2px solid currentColor;
+}
+
+.icon-pulse::after {
+  top: 25%;
+  left: 28%;
+  width: 44%;
+  height: 50%;
+  border-left: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: skewX(-28deg);
+}
+
+.icon-scope::before,
+.icon-stethoscope::before {
+  inset: 12% 20% 34%;
+  border: 2px solid currentColor;
+  border-radius: 0 0 999px 999px;
+  border-top: 0;
+}
+
+.icon-scope::after,
+.icon-stethoscope::after {
+  right: 13%;
+  bottom: 10%;
+  width: 22%;
+  height: 22%;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+}
+
+.icon-network::before {
+  top: 14%;
+  left: 14%;
+  width: 18%;
+  height: 18%;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: calc(var(--icon-size) * 0.54) calc(var(--icon-size) * 0.18) 0 currentColor,
+    calc(var(--icon-size) * 0.26) calc(var(--icon-size) * 0.58) 0 currentColor;
+}
+
+.icon-network::after {
+  inset: 24% 22% 28%;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: skewY(24deg);
+}

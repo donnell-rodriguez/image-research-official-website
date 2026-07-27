@@ -1,0 +1,325 @@
+:root {
+  --font-body: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-accent: var(--font-body);
+  --font-copy: var(--font-body);
+
+  --type-display: clamp(48px, 5vw, 72px);
+  --type-h1: clamp(42px, 4.4vw, 64px);
+  --type-h2: clamp(34px, 3.25vw, 48px);
+  --type-h3: clamp(22px, 1.85vw, 28px);
+  --type-card-title: clamp(20px, 1.65vw, 24px);
+  --type-body-large: 18px;
+  --type-body: 16px;
+  --type-body-small: 15px;
+  --type-label: 13px;
+  --type-button: 14px;
+
+  --weight-heading: 800;
+  --weight-subheading: 700;
+  --weight-body: 400;
+  --weight-medium: 600;
+  --line-display: 0.96;
+  --line-heading: 1.12;
+  --line-title: 1.18;
+  --line-body: 1.68;
+  --line-compact: 1.45;
+  --tracking-label: 0.03em;
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+}
+
+body {
+  font-size: var(--type-body);
+  font-weight: var(--weight-body);
+  letter-spacing: 0;
+  line-height: var(--line-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote,
+address,
+summary,
+time,
+a,
+span,
+strong,
+small,
+figcaption,
+.brand,
+.brand-text,
+.nav a,
+.button {
+  font-family: var(--font-body);
+  letter-spacing: 0;
+}
+
+p,
+li,
+blockquote,
+address,
+.rich-content,
+.imported-content,
+.section-heading p,
+.split-copy p,
+.product-copy p,
+.summary-band p,
+.products-overview-notes p,
+.feature-item p,
+.article-card p,
+.newsroom-card p,
+.newsroom-compact-item p,
+.article-body,
+.article-body p,
+.article-body li,
+.article-related-item p,
+.footer-note,
+.footer-section a,
+.about-story-copy p,
+.about-capability-card p,
+.about-founder-copy li,
+.about-faq-list p,
+.contact-copy blockquote p {
+  font-size: var(--type-body);
+  font-weight: var(--weight-body);
+  font-style: normal;
+  line-height: var(--line-body);
+}
+
+.home-hero .hero-solution {
+  font-size: var(--type-display);
+  font-weight: var(--weight-heading);
+  line-height: var(--line-display);
+}
+
+.home-hero h1,
+.page-hero h1,
+.medicare-hero h1,
+.about-hero h1,
+.imported-content h1 {
+  font-size: var(--type-h1);
+  font-weight: var(--weight-heading);
+  line-height: 1.08;
+}
+
+.article-head h1 {
+  font-size: clamp(32px, 3.45vw, 48px);
+  font-weight: var(--weight-heading);
+  line-height: 1.12;
+}
+
+@media (max-width: 720px) {
+  .article-head h1 {
+    font-size: clamp(28px, 8.5vw, 36px);
+    line-height: 1.14;
+  }
+}
+
+.section-heading h2,
+.split-copy h2,
+.product-copy h2,
+.summary-band h2,
+.contact-copy h2,
+.latest-section .section-heading h2,
+.partners-band .section-heading h2,
+.newsroom-more > h2,
+.article-related > h2,
+.article-newsroom-cta h2,
+.about-story-copy h2,
+.about-leadership-heading h2,
+.about-founder-copy h3,
+.about-faq-heading h2,
+.about-capability-section .section-heading h2,
+.imported-content h2 {
+  font-size: var(--type-h2);
+  font-weight: var(--weight-heading);
+  line-height: var(--line-heading);
+}
+
+.hero-visual h2,
+.newsroom-page h1 {
+  font-size: clamp(34px, 3.2vw, 44px);
+  font-weight: var(--weight-heading);
+  line-height: var(--line-heading);
+}
+
+.feature-item h3,
+.services-section .feature-item h3,
+.solution-step h3,
+.article-card h3,
+.newsroom-card h2,
+.newsroom-compact-item h2,
+.article-related-item h3,
+.about-capability-card h3,
+.profile-card h3,
+.contact-panel h2,
+.rich-content h3,
+.imported-content h3,
+.imported-content h4,
+.about-faq-list summary {
+  font-size: var(--type-card-title);
+  font-weight: var(--weight-heading);
+  line-height: var(--line-title);
+}
+
+.newsroom-feature-copy h2,
+.newsroom-card-copy h2 {
+  font-size: var(--type-h3);
+  font-weight: var(--weight-heading);
+  line-height: var(--line-title);
+}
+
+.newsroom-tile-card .newsroom-card-copy h2,
+.newsroom-compact-item h2 {
+  font-size: var(--type-card-title);
+}
+
+.newsroom-compact-item h2 {
+  font-size: clamp(17px, 1.28vw, 19px);
+  font-weight: 600;
+  line-height: 1.18;
+}
+
+.newsroom-compact-item .newsroom-label {
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.1;
+}
+
+.newsroom-compact-item time {
+  font-size: 13.5px;
+  font-weight: 550;
+  line-height: 1.2;
+}
+
+.eyebrow,
+.home-hero .eyebrow,
+.projects-section .eyebrow,
+.services-section .eyebrow,
+.contact-copy .eyebrow,
+.partners-band .eyebrow,
+.newsroom-label,
+.newsroom-card .newsroom-label,
+.newsroom-compact-item .newsroom-label,
+.article-related-item .newsroom-label,
+.article-head .newsroom-label,
+.about-page .eyebrow,
+.about-founder-credential {
+  font-size: var(--type-label);
+  font-weight: var(--weight-subheading);
+  font-style: normal;
+  letter-spacing: var(--tracking-label);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.section-heading p,
+.latest-section .section-heading p,
+.hero-copy p,
+.page-hero p,
+.medicare-hero p,
+.about-hero p,
+.article-dek,
+.article-body > p:first-child {
+  font-size: var(--type-body-large);
+  font-weight: var(--weight-body);
+  line-height: 1.58;
+}
+
+.services-section .feature-item p,
+.contact-list span,
+.newsroom-card time,
+.newsroom-compact-item time,
+.article-related-item time,
+.article-head time,
+.footer-legal,
+.footer-breadcrumb,
+.about-metric span {
+  font-size: var(--type-body-small);
+  font-weight: var(--weight-body);
+  line-height: var(--line-compact);
+}
+
+.contact-list span,
+.article-card time,
+.newsroom-card time,
+.newsroom-compact-item time,
+.article-related-item time,
+.article-head time {
+  font-weight: var(--weight-subheading);
+}
+
+.button,
+.nav a,
+.text-link,
+.article-share a,
+.article-newsroom-cta a {
+  font-size: var(--type-button);
+  font-weight: var(--weight-subheading);
+  line-height: 1;
+}
+
+.brand-text {
+  font-size: 20px;
+  font-weight: var(--weight-heading);
+  line-height: 1;
+}
+
+.brand-name {
+  font-size: 24px;
+  font-weight: var(--weight-heading);
+  line-height: 1;
+}
+
+.about-metric strong,
+.solution-step::before,
+.about-card-number {
+  font-weight: var(--weight-heading);
+  letter-spacing: 0;
+}
+
+strong,
+b {
+  font-weight: var(--weight-subheading);
+}
+
+.contact-copy h2 strong,
+.projects-section .product-copy h2 strong,
+.partners-band .section-heading h2 strong {
+  font-weight: inherit;
+}
+
+@media (max-width: 720px) {
+  :root {
+    --type-display: clamp(46px, 13vw, 60px);
+    --type-h1: clamp(34px, 9.4vw, 46px);
+    --type-h2: clamp(30px, 8vw, 38px);
+    --type-h3: clamp(22px, 6vw, 28px);
+    --type-card-title: 20px;
+    --type-body-large: 16px;
+    --type-body: 15px;
+    --type-body-small: 14px;
+    --line-body: 1.62;
+  }
+
+  .brand-text {
+    font-size: 16px;
+  }
+
+  .brand-name {
+    font-size: 20px;
+  }
+}
