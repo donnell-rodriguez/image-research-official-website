@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const root = process.cwd();
-const contentRoots = ["public/content", "src/data/siteContent.json"];
+const contentRoots = ["public/content"];
 const sourceRoots = ["src"];
 const sourceExtensions = new Set([".js", ".jsx", ".ts", ".tsx"]);
 const allowedEmptyAlt = new Set([

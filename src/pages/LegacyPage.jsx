@@ -1,4 +1,4 @@
-import { useParams } from "@tanstack/react-router";
+import { Navigate, useParams } from "@tanstack/react-router";
 import { InnerPageHero } from "../components/InnerPageHero";
 import { PageHero } from "../components/PageHero";
 import { LoadingPage, NotFound } from "../components/SystemPages";
@@ -9,8 +9,19 @@ import { BlogPage } from "./BlogPage";
 import { HomePage } from "./HomePage";
 import { PostPage } from "./PostPage";
 
+const legacyPostRedirects = {
+  "aliquam-erat-volutpat": "/team-hiking-retreat-sai-kung-december-2024",
+  "aliquam-id-dolor": "/technical-exchange-guangzhou-pharmaceutical-university-sun-yat-sen-cancer-center",
+  "quis-autem-vel-eum-iure": "/biohk-2024-ai-powered-liver-cancer-treatment-solution",
+  "etiam-bibendum-elit-eget-erat": "/clinical-adoption-cuhk-shenzhen-affiliated-hospital",
+  "lorem-ipsum-dolor-sit-amet": "/ascend-ai-innovation-competition-2023-huawei-ecosystem-award",
+};
+
 export function LegacyPage() {
   const params = useParams({ strict: false });
+  const legacyRedirect = legacyPostRedirects[params.slug];
+  if (legacyRedirect) return <Navigate to={legacyRedirect} replace />;
+
   const shouldLoadPage = params.slug !== "home" && params.slug !== "blog" && params.slug !== "newsroom";
   const { data: page, isLoading } = usePage(shouldLoadPage ? params.slug : null);
   const { data: post, isLoading: isPostLoading } = usePost(shouldLoadPage ? params.slug : null);

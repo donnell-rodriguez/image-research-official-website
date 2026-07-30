@@ -1,28 +1,63 @@
-# 轻量品牌规范
+# ADV Lightweight Brand System
 
-## 原则
+## Principle
 
-首页优先保持客户原站观感，同时用少量 CSS token 统一按钮、标题、强调色和字体角色。规范化只发生在 CSS 层，不新增字体、图片、脚本或运行时依赖。
+The website uses a green visual system derived from the ADV logo. Product pages,
+PPTs, admin systems, and brochures should keep this green system as the primary
+brand language instead of introducing orange as the main CTA color.
 
-## 色彩角色
+## Current CSS Tokens
 
-- `--brand-cta`: 主 CTA 橙色，用于内容区主要按钮和橙色分隔线。
-- `--brand-cta-bright`: Hero 首屏橙色按钮，保留原站更亮的橙色效果。
-- `--brand-tech`: 科技青蓝色，用于普通强调、链接和默认按钮。
-- `--brand-tech-bright`: Hero 中 `SOLUTION` 文字强调。
-- `--brand-tech-line`: Hero 中 `SOLUTION` 外框线。
-- `--brand-heading`: 白底区块主标题。
-- `--brand-dark`: 深色视频或暗色背景上的黑色按钮。
+The source of truth is `src/styles/00-foundation.css`.
 
-## 按钮规则
+```css
+--brand-cta: #58bd19;
+--brand-cta-bright: #9af21f;
+--brand-tech: #1f9b18;
+--brand-tech-bright: #8fee1a;
+--brand-tech-line: #9af21f;
+--brand-heading-deep: #071109;
+--bg: #f5f9f4;
+--line: #dce8df;
+--brand-copy: #303a32;
+--brand-muted: #5f6b62;
+```
 
-- 内容区主按钮使用橙色 `--brand-cta`。
-- Hero 的白色按钮和橙色按钮按原站保留。
-- Summary 深色背景使用黑色按钮。
-- 默认 `button-primary` 保持科技青蓝色，供非首页或通用组件使用。
+## Brand Roles
 
-## 字体规则
+- Primary CTA and active states: `--brand-cta`
+- Hover highlights and small emphasis lines: `--brand-cta-bright`
+- Deep header/footer backgrounds: `--brand-heading-deep` with green glow accents
+- Page background: `--bg`
+- Cards and content surfaces: white
+- Body copy: `--brand-copy`
+- Secondary text: `--brand-muted`
+- Borders and separators: `--line`
 
-- 标题、导航、按钮使用 `--font-body`，即 Montserrat 优先。
-- 原站风格正文段落使用 `--font-copy`，即 Helvetica Neue 优先。
-- 不新增外部字体，避免增加首屏资源。
+## Usage Rules
+
+- Use green for primary actions, current navigation, highlight lines, and product
+  emphasis states.
+- Use deep green/near-black backgrounds for header, footer, and dark brand bands.
+- Use light green page backgrounds with white content surfaces for medical-tech
+  clarity.
+- Keep red and blue only for diagram semantics where they explain a workflow.
+- Do not use orange as a primary button or navigation color in new ADV materials.
+
+## Optional Future Token Names
+
+If the broader ADV product ecosystem needs a single cross-product naming scheme,
+map the current website colors into `--adv-*` tokens:
+
+```css
+--adv-primary: #49c915;
+--adv-primary-bright: #7af21c;
+--adv-forest: #07140d;
+--adv-forest-soft: #253b25;
+--adv-bg: #f3faf1;
+--adv-surface: #ffffff;
+--adv-ink: #07140d;
+--adv-text: #4e5c52;
+--adv-muted: #6b776e;
+--adv-border: #dcefd8;
+```

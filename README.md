@@ -1,63 +1,67 @@
-# Advantage Data Vision Website Migration
+# Advantage Data Vision Official Website
 
-This project migrates `https://adv-medical.com.hk/` from WordPress into a fast
-TanStack React frontend with a Rust Axum backend.
+Static official website source for `https://adv-medical.com.hk/`.
 
-## What Is Included
+## Stack
 
-- TanStack Router routes for the public site pages.
-- TanStack Query-backed content access using the migrated local content JSON.
-- 10 WordPress pages preserved in the site map.
-- 16 posts migrated as event/detail pages.
-- 84 referenced media assets downloaded and compressed for local serving.
-- Rust backend APIs:
-  - `GET /api/health`
-  - `GET /api/pages`
-  - `GET /api/posts`
-  - `GET /api/posts/:slug`
-- Rust static hosting for the built frontend, including SPA route fallback.
+- React 18
+- TanStack Router
+- Vite static build
+- Local JSON content under `public/content`
+- Static media under `public/assets`
 
-## Local Development
+The project does not require a runtime backend. Build output is written to `dist/`
+and can be uploaded to Bluehost, served by nginx, or deployed to any static host.
+
+## Scripts
 
 ```bash
 pnpm install
+pnpm run dev
+pnpm run verify
 pnpm run build
-ADV_SITE_BIND=127.0.0.1:8088 cargo run -p adv-medical-site-api
 ```
 
-Open:
+`pnpm run verify` runs the project quality gates:
+
+- asset reference audit
+- image alt text audit
+- content route audit
+- production build
+- performance budget audit
+
+## Project Structure
 
 ```text
-http://127.0.0.1:8088/
+src/
+  components/     Shared React components
+  hooks/          Browser hooks for content, SEO, and page effects
+  lib/            Small formatting and content helpers
+  pages/          Route-level page components
+  styles/         Layered CSS by page/system area
+public/
+  assets/         Optimized images, videos, and fonts
+  content/        Static JSON used by the site
+docs/             Deployment and brand notes
+scripts/          Local quality and SEO generation scripts
 ```
 
-## Rebuild Migrated Content
-
-The source WordPress JSON snapshots are stored outside this project in:
-
-```text
-../adv-medical-com-hk-migration-source
-```
-
-To regenerate local content and assets:
+## Build And Deploy
 
 ```bash
-python3 scripts/prepare_content.py
 pnpm run build
 ```
 
-## Deployment Notes
+Upload the contents of `dist/` to the web root. The repository intentionally
+does not track `dist/`, `node_modules/`, local audit screenshots, temporary
+assets, or Bluehost zip packages.
 
-Build the frontend first, then run the Rust backend from the project root. By
-default, the backend serves `dist` and reads `dist/content/site-content.json`.
+For Bluehost, keep `public/.htaccess` in the build output. For nginx, use
+`docs/nginx-static-cache.conf` as a reference for static cache headers and SPA
+fallback behavior.
 
-Useful environment variables:
+## Brand System
 
-```text
-ADV_SITE_BIND=0.0.0.0:8088
-ADV_SITE_STATIC_DIR=dist
-ADV_SITE_CONTENT=dist/content/site-content.json
-```
-
-Place nginx or another reverse proxy in front of the Rust process for TLS and
-domain routing.
+The site uses the ADV green visual system documented in
+`docs/lightweight-brand-system.md`. New pages and product materials should reuse
+the same brand tokens instead of introducing another primary CTA color.

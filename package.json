@@ -1,10 +1,9 @@
 {
-  "name": "adv-medical-com-hk-tanstack-rust",
+  "name": "advantage-data-vision-official-website",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "prepare:content": "python3 scripts/prepare_content.py",
     "dev": "vite --host 0.0.0.0 --port 5178",
     "build": "vite build && node scripts/generate_seo_pages.mjs",
     "audit:assets": "node scripts/audit_assets.mjs",

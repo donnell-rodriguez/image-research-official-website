@@ -20,6 +20,13 @@ const stalePaths = [
   "/home-free-4",
   "/checkout-2",
 ];
+const stalePostSlugs = [
+  "aliquam-erat-volutpat",
+  "aliquam-id-dolor",
+  "quis-autem-vel-eum-iure",
+  "etiam-bibendum-elit-eget-erat",
+  "lorem-ipsum-dolor-sit-amet",
+];
 const placeholderPatterns = [
   /href=(["'])#\1/i,
   /href=(["'])#(?:download|pricing|shop)\1/i,
@@ -65,6 +72,13 @@ for (const slug of stalePageSlugs) {
   }
 }
 
+for (const slug of stalePostSlugs) {
+  const file = path.join(root, "public/content/posts", `${slug}.json`);
+  if (fs.existsSync(file)) {
+    issues.push(`placeholder post slug still exists: public/content/posts/${slug}.json`);
+  }
+}
+
 const siteIndex = readJson("public/content/site-index.json");
 const indexedPages = siteIndex.pages || [];
 for (const page of indexedPages) {
@@ -73,6 +87,15 @@ for (const page of indexedPages) {
   }
   if (stalePaths.some((stalePath) => page.path === stalePath || page.path === `${stalePath}/`)) {
     issues.push(`stale page path is still in site-index.json: ${page.path}`);
+  }
+}
+
+for (const post of siteIndex.posts || []) {
+  if (stalePostSlugs.includes(post.slug)) {
+    issues.push(`placeholder post slug is still in site-index.json: ${post.slug}`);
+  }
+  if (stalePostSlugs.some((slug) => post.path === `/${slug}` || post.path === `/${slug}/`)) {
+    issues.push(`placeholder post path is still in site-index.json: ${post.path}`);
   }
 }
 
