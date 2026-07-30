@@ -35,6 +35,11 @@
   --inner-fold-path: polygon(0 72%, 20% 52%, 41% 75%, 64% 34%, 100% 72%, 100% 100%, 0 100%);
 }
 
+.inner-page-hero-career {
+  --inner-hero-position: 48% 42%;
+  --inner-fold-path: polygon(0 71%, 18% 48%, 39% 73%, 65% 30%, 100% 71%, 100% 100%, 0 100%);
+}
+
 .inner-page-hero::before,
 .inner-page-hero::after {
   position: absolute;

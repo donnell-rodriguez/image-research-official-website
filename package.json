@@ -6,9 +6,13 @@
   "scripts": {
     "prepare:content": "python3 scripts/prepare_content.py",
     "dev": "vite --host 0.0.0.0 --port 5178",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate_seo_pages.mjs",
+    "audit:assets": "node scripts/audit_assets.mjs",
+    "audit:alt": "node scripts/audit_image_alt.mjs",
+    "audit:content": "node scripts/audit_content_routes.mjs",
+    "audit:perf": "node scripts/audit_performance_budget.mjs",
     "preview": "vite preview --host 0.0.0.0 --port 4178",
-    "verify": "npm run build"
+    "verify": "npm run audit:assets && npm run audit:alt && npm run audit:content && npm run build && npm run audit:perf"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.121.21",

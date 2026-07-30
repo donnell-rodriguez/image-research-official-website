@@ -1,0 +1,41 @@
+/* Final output spacing: remove excess vertical air on tablet and phone. */
+@media (max-width: 1180px) {
+  .ai-workflow-output-block {
+    grid-template-rows: auto auto !important;
+    row-gap: clamp(10px, 1.6vw, 16px) !important;
+    align-content: start !important;
+    min-height: 0 !important;
+  }
+
+  .ai-output-heading {
+    margin: 0 !important;
+  }
+
+  .ai-output-original {
+    align-self: start !important;
+    justify-self: center !important;
+    width: min(100%, 620px) !important;
+    max-height: min(430px, 58vw) !important;
+    margin: 0 auto !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .products-overview-section {
+    padding-bottom: 16px !important;
+  }
+
+  .ai-workflow-output-block {
+    row-gap: 6px !important;
+  }
+
+  .ai-output-heading {
+    gap: 3px !important;
+  }
+
+  .ai-output-original {
+    width: min(100%, 360px) !important;
+    max-height: 330px !important;
+  }
+}

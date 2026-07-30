@@ -1,0 +1,56 @@
+/* Final medium-screen product flow arrows: 1 right, 2 bidirectional row link, 3 bidirectional. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    display: block !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    box-shadow: none !important;
+  }
+
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::before,
+  .product-flow-arrow-vertical::after {
+    display: none !important;
+    content: "" !important;
+  }
+
+  .product-flow-arrow-forward {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: clamp(58px, 7vw, 76px) !important;
+    height: 42px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 12px 0 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 42'%3E%3Cdefs%3E%3Cmarker id='arrow' viewBox='0 0 10 10' refX='8.5' refY='5' markerWidth='7' markerHeight='7' orient='auto'%3E%3Cpath d='M0 0 10 5 0 10Z' fill='%23189818'/%3E%3C/marker%3E%3C/defs%3E%3Cpath d='M10 21H70' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round' marker-end='url(%23arrow)'/%3E%3C/svg%3E") !important;
+  }
+
+  .product-flow-arrow-exchange {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    height: clamp(70px, 8vw, 88px) !important;
+    margin: 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 92'%3E%3Cdefs%3E%3Cmarker id='arrow' viewBox='0 0 10 10' refX='8.5' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'%3E%3Cpath d='M0 0 10 5 0 10Z' fill='%23189818'/%3E%3C/marker%3E%3C/defs%3E%3Cpath d='M232 10 C232 66 138 78 68 78' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round' marker-start='url(%23arrow)' marker-end='url(%23arrow)'/%3E%3C/svg%3E") !important;
+  }
+
+  .product-flow-arrow-vertical {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+    width: clamp(58px, 7vw, 76px) !important;
+    height: 42px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 42'%3E%3Cdefs%3E%3Cmarker id='arrow' viewBox='0 0 10 10' refX='8.5' refY='5' markerWidth='7' markerHeight='7' orient='auto-start-reverse'%3E%3Cpath d='M0 0 10 5 0 10Z' fill='%23189818'/%3E%3C/marker%3E%3C/defs%3E%3Cpath d='M12 21H72' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round' marker-start='url(%23arrow)' marker-end='url(%23arrow)'/%3E%3C/svg%3E") !important;
+  }
+}

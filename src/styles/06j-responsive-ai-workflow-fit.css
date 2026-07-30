@@ -1,0 +1,167 @@
+/* AI workflow final fit: keep tablet/phone sections readable and non-overlapping. */
+@media (max-width: 1180px) {
+  .adv-medicare-ai-flow .ai-workflow-web,
+  .ai-workflow-web {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: min(100% - 48px, 680px);
+    max-width: 680px;
+    margin: 30px auto 0;
+    overflow: visible;
+  }
+
+  .ai-workflow-block,
+  .ai-workflow-input-block,
+  .ai-workflow-model-block,
+  .ai-workflow-output-block {
+    display: grid;
+    grid-column: auto;
+    grid-template-rows: none;
+    width: 100%;
+    min-width: 0;
+    justify-items: center;
+    overflow: visible;
+  }
+
+  .ai-workflow-block h3 {
+    min-height: 0;
+    margin: 0 0 10px;
+    font-size: clamp(24px, 3vw, 30px);
+    line-height: 1.08;
+  }
+
+  .ai-input-card {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 620px);
+    min-height: 0;
+    gap: 12px;
+    align-items: end;
+    padding: 14px 18px;
+  }
+
+  .ai-input-item {
+    gap: 6px;
+  }
+
+  .ai-input-item img {
+    width: min(100%, 120px);
+    height: 74px;
+  }
+
+  .ai-input-item span {
+    font-size: 12px;
+    line-height: 1.14;
+  }
+
+  .ai-workflow-arrow {
+    display: grid;
+    width: 100%;
+    height: 24px;
+    margin: 0;
+    place-items: center;
+  }
+
+  .ai-workflow-arrow::after {
+    color: var(--brand-tech);
+    content: "↓";
+    font-size: 24px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .ai-model-graphic-wrap {
+    width: 100%;
+    min-height: 0;
+    justify-items: center;
+  }
+
+  .ai-model-graphic {
+    width: min(100%, 230px);
+    max-height: 380px;
+    object-fit: contain;
+  }
+
+  .ai-output-heading {
+    grid-template-columns: 1fr;
+    gap: 7px;
+    width: min(100%, 620px);
+    min-height: 0;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .ai-output-heading h3 {
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+  }
+
+  .ai-output-heading p {
+    max-width: 560px;
+    margin: 0 auto;
+    font-size: 12px;
+    line-height: 1.34;
+    text-align: center;
+  }
+
+  .ai-output-original {
+    width: min(100%, 620px);
+    max-height: none;
+    justify-self: center;
+    object-fit: contain;
+  }
+}
+
+@media (max-width: 760px) {
+  .adv-medicare-ai-flow .ai-workflow-web,
+  .ai-workflow-web {
+    gap: 14px;
+    width: min(100% - 32px, 430px);
+    max-width: 430px;
+    margin-top: 24px;
+  }
+
+  .ai-workflow-block h3 {
+    margin-bottom: 8px;
+    font-size: 23px;
+  }
+
+  .ai-input-card {
+    width: min(100%, 360px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .ai-input-item img {
+    width: min(100%, 76px);
+    height: 50px;
+  }
+
+  .ai-input-item span {
+    font-size: 10.5px;
+    line-height: 1.12;
+  }
+
+  .ai-model-graphic {
+    width: min(100%, 190px);
+    max-height: 310px;
+  }
+
+  .ai-output-heading {
+    width: min(100%, 360px);
+    margin-bottom: 10px;
+  }
+
+  .ai-output-heading p {
+    max-width: 320px;
+    font-size: 10.5px;
+    line-height: 1.32;
+  }
+
+  .ai-output-original {
+    width: min(100%, 360px);
+  }
+}

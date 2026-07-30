@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { Feature } from "../components/Feature";
 import { Icon } from "../components/Icon";
-import { PageHero } from "../components/PageHero";
+import { InnerPageHero } from "../components/InnerPageHero";
+import { useSeo } from "../hooks/useSeo";
 
 const jobRequirements = [
   "Valid legal status or visa to work in Hong Kong.",
@@ -11,12 +12,20 @@ const jobRequirements = [
 ];
 
 export function CareerPage() {
+  useSeo({
+    title: "Careers",
+    description:
+      "Explore engineering opportunities at Advantage Data Vision for medical AI, deep learning, clinical decision support, and healthcare product development.",
+    path: "/career",
+  });
+
   return (
     <>
-      <PageHero
+      <InnerPageHero
         eyebrow="Careers at ADV"
         title="Build AI systems for precision healthcare."
         text="Join a focused medical technology team developing virtual patient simulation, AI model pipelines, and clinical decision support products."
+        variant="career"
       />
 
       <section className="section career-page-section">

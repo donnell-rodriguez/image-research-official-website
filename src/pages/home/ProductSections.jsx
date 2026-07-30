@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { siteImages } from "../../data/site";
+import { productPath, siteImages } from "../../data/site";
 
 const aiInputItems = [
   {
@@ -72,77 +72,15 @@ export function AiWorkflowSection() {
           </p>
         </div>
 
-        <div className="ai-output-card">
-          <section className="ai-output-panel ai-output-prediction">
-            <h4>Disease Prediction</h4>
-            <img
-              src={workflow.riskbar}
-              alt="Disease prediction risk distribution"
-              width="170"
-              height="48"
-              loading="lazy"
-              decoding="async"
-            />
-          </section>
-
-          <section className="ai-output-panel ai-output-search">
-            <div className="ai-output-panel-copy">
-              <h4>Similar Patient Search</h4>
-            </div>
-            <div className="ai-output-search-media">
-              <span className="ai-output-person ai-output-new-case" aria-hidden="true" />
-              <span className="ai-output-search-label">search</span>
-              <img
-                src={workflow.database}
-                alt="Real-case patient database"
-                width="112"
-                height="104"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="ai-output-review-person" aria-hidden="true" />
-              <span className="ai-output-review-label">Review</span>
-              <img
-                src={workflow.table}
-                alt="Similar cases and treatment outcomes table"
-                width="144"
-                height="112"
-                loading="lazy"
-                decoding="async"
-              />
-              <span className="ai-output-doctor" aria-hidden="true" />
-            </div>
-          </section>
-
-          <section className="ai-output-panel ai-output-treatment">
-            <div className="ai-output-panel-copy">
-              <h4>Treatment Effectiveness Prediction + Disease Progression Forecasting</h4>
-              <div className="ai-output-combine">combine with:</div>
-              <ul>
-                <li>Relapse</li>
-                <li>Survival</li>
-                <li>Co-morbidities</li>
-                <li>Combined treatment</li>
-              </ul>
-            </div>
-            <div className="ai-output-generate">
-              <span>Generate</span>
-              <span className="ai-output-generate-arrow" aria-hidden="true" />
-              <span className="ai-output-doctor ai-output-generate-doctor" aria-hidden="true" />
-            </div>
-            <figure>
-              <img
-                src={workflow.record}
-                alt="Generated personalized outcome prediction record"
-                width="174"
-                height="116"
-                loading="lazy"
-                decoding="async"
-              />
-              <figcaption>Personalized outcome prediction for new case</figcaption>
-            </figure>
-          </section>
-        </div>
+        <img
+          className="ai-output-original"
+          src={workflow.output}
+          alt="Disease prediction, similar patient search, and treatment effectiveness output workflow"
+          width="565"
+          height="533"
+          loading="lazy"
+          decoding="async"
+        />
       </article>
     </section>
   );
@@ -173,7 +111,7 @@ export function ProjectsSection() {
           gap by providing personalized treatment plans using imaging,
           pathology, and genomic data.
         </p>
-        <Link to="/adv-medicare-limited/" className="button button-primary">
+        <Link to={productPath} className="button button-primary">
           Learn More
         </Link>
       </div>

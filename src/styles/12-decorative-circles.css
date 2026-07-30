@@ -131,7 +131,7 @@
   left: max(-100px, calc((100vw - var(--site-content-width)) / 2 - 160px));
   width: clamp(240px, 21vw, 360px);
   height: clamp(240px, 21vw, 360px);
-  background: var(--decor-circle-soft);
+  background: rgba(88, 189, 25, 0.035);
 }
 
 .products-overview-section::after {
@@ -139,8 +139,8 @@
   bottom: 72px;
   width: clamp(160px, 15vw, 260px);
   height: clamp(160px, 15vw, 260px);
-  border: 1px solid rgba(88, 189, 25, 0.1);
-  background: rgba(154, 242, 31, 0.045);
+  border: 1px solid rgba(88, 189, 25, 0.08);
+  background: rgba(154, 242, 31, 0.03);
 }
 
 .partners-band::before {

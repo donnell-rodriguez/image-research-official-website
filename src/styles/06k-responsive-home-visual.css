@@ -1,0 +1,31 @@
+@media (max-width: 520px) {
+  .home-hero .hero-visual {
+    display: grid;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .home-hero .hero-visual-circle {
+    width: 100%;
+    max-width: 390px;
+    min-height: 292px;
+    margin: 0 auto;
+    justify-items: center;
+    align-content: start;
+  }
+
+  .home-hero .hero-visual h2 {
+    width: min(100%, 360px);
+    margin: 0 auto 16px;
+    font-size: clamp(24px, 6.7vw, 29px);
+    line-height: 1.08;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .home-hero .hero-visual img {
+    width: min(86vw, 352px);
+    margin: 0 auto;
+    transform: translateX(-2px);
+  }
+}

@@ -1,5 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { InnerPageHero } from "../components/InnerPageHero";
+import { productPath, siteImages } from "../data/site";
+import { useSeo } from "../hooks/useSeo";
 import { AiWorkflowSection, ProductFlowShowcase } from "./home/ProductSections";
 
 const productCapabilities = [
@@ -18,6 +20,14 @@ const productCapabilities = [
 ];
 
 export function AdvMedicarePage() {
+  useSeo({
+    title: "Virtual Patient Simulation System",
+    description:
+      "ADV Medicare Limited provides a virtual patient simulation system for precision oncology, personalized deep features, QR-based exchange, and real-world case search.",
+    path: productPath,
+    image: siteImages.platform,
+  });
+
   return (
     <>
       <InnerPageHero
@@ -45,9 +55,6 @@ export function AdvMedicarePage() {
             search similar patient records, and share standardized deep
             features across collaborating units.
           </p>
-          <Link to="/contact/" className="button button-primary">
-            Contact Us
-          </Link>
         </div>
 
         <div className="adv-medicare-capability-grid">
@@ -94,10 +101,10 @@ export function AdvMedicarePage() {
             Contact the ADV team for partnerships, hospital workflow discussion,
             product demonstrations, or publication and validation enquiries.
           </p>
+          <Link to="/contact/" className="button button-primary">
+            Contact Us
+          </Link>
         </div>
-        <Link to="/contact/" className="button button-primary">
-          Contact Us
-        </Link>
       </section>
     </>
   );

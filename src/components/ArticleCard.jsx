@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { formatDate } from "../lib/date";
+import { getPostImageAlt } from "../lib/imageAlt";
 import { Icon } from "./Icon";
 
 export function ArticleCard({ post }) {
@@ -8,7 +9,13 @@ export function ArticleCard({ post }) {
   return (
     <article className="article-card">
       {post.featuredImage ? (
-        <img className={imageClassName} src={post.featuredImage} alt="" loading="lazy" decoding="async" />
+        <img
+          className={imageClassName}
+          src={post.featuredImage}
+          alt={getPostImageAlt(post)}
+          loading="lazy"
+          decoding="async"
+        />
       ) : (
         <div className="image-fallback" />
       )}

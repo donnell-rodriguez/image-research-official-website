@@ -1,0 +1,45 @@
+/* Final EOF small-screen product flow arrows: match the compact green down arrow. */
+@media (max-width: 760px) {
+  .product-flow-arrow,
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 28px !important;
+    min-height: 28px !important;
+    margin: 2px 0 8px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .product-flow-arrow::before,
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-vertical::before {
+    display: none !important;
+    content: "" !important;
+  }
+
+  .product-flow-arrow::after,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::after {
+    position: absolute !important;
+    top: 2px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    display: block !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 0 !important;
+    border-right: 7px solid var(--brand-tech) !important;
+    border-bottom: 7px solid var(--brand-tech) !important;
+    background: transparent !important;
+    content: "" !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+  }
+}

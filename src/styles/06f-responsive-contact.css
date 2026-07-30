@@ -1,0 +1,12 @@
+/* Final small-screen contact spacing: move partner logos closer to the section above. */
+@media (max-width: 640px) {
+  .home-contact-band {
+    padding-top: 18px !important;
+  }
+
+  .contact-logo-strip {
+    padding-top: 0 !important;
+    padding-bottom: 2px !important;
+    margin-bottom: 42px !important;
+  }
+}

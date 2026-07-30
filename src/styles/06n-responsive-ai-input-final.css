@@ -1,0 +1,41 @@
+/* Final EOF small-screen AI input layout: keep the three input types in one row. */
+@media (max-width: 760px) {
+  .ai-workflow-input-block {
+    width: 100% !important;
+    justify-items: center !important;
+  }
+
+  .ai-input-card {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    width: min(100%, 420px) !important;
+    min-height: 0 !important;
+    gap: clamp(6px, 2vw, 10px) !important;
+    align-items: end !important;
+    padding: 14px 12px !important;
+  }
+
+  .ai-input-item {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: clamp(44px, 13vw, 58px) auto !important;
+    justify-items: center !important;
+    align-items: end !important;
+    gap: 5px !important;
+    min-width: 0 !important;
+    text-align: center !important;
+  }
+
+  .ai-input-item img {
+    width: min(100%, clamp(58px, 18vw, 78px)) !important;
+    height: clamp(42px, 12vw, 56px) !important;
+    object-fit: contain !important;
+  }
+
+  .ai-input-item span {
+    max-width: 100% !important;
+    font-size: clamp(9px, 2.8vw, 10.5px) !important;
+    line-height: 1.1 !important;
+    overflow-wrap: anywhere !important;
+  }
+}

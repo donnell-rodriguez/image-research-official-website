@@ -14,12 +14,13 @@ export const siteImages = {
     clinical: "/assets/generated/ai-workflow-clinical.jpg",
     imaging: "/assets/generated/ai-workflow-imaging.jpg",
     pathology: "/assets/generated/ai-workflow-pathology.jpg",
-    model: "/assets/generated/ai-workflow-model.jpg",
+    model: "/assets/generated/ai-workflow-model.png?v=restore-nodes",
     qr: "/assets/generated/ai-workflow-qr.jpg",
     database: "/assets/generated/ai-workflow-database.jpg",
     riskbar: "/assets/generated/ai-workflow-riskbar.jpg",
     table: "/assets/generated/ai-workflow-table.jpg",
     record: "/assets/generated/ai-workflow-record.jpg",
+    output: "/assets/generated/ai-workflow-output-original.png",
   },
   partnerNetwork: "/assets/021-4-1024x447.webp",
   demoPoster: "/assets/023-demo-poster.jpg",
@@ -30,20 +31,36 @@ export const siteImages = {
   demo: "/assets/023-demo.mp4",
   contactMap: "/assets/contact-map-polyu.webp",
   contactLogos: [
-    "/assets/contact-logo-roche.webp",
-    "/assets/contact-logo-huawei.webp",
-    "/assets/contact-logo-qeh.webp",
-    "/assets/contact-logo-hmu.webp",
+    {
+      src: "/assets/contact-logo-roche.png",
+      alt: "Roche logo",
+    },
+    {
+      src: "/assets/contact-logo-huawei.png",
+      alt: "Huawei logo",
+    },
+    {
+      src: "/assets/contact-logo-qeh.png",
+      alt: "Queen Elizabeth Hospital logo",
+    },
+    {
+      src: "/assets/contact-logo-hmu.png",
+      alt: "Harbin Medical University logo",
+    },
   ],
 };
 
 export const siteTagline =
   "We harness cutting-edge AI technology for data processing, modeling, and personalized risk stratification in clinical decision support.";
 
+export const siteUrl = "https://adv-medical.com.hk";
+
+export const productPath = "/products/virtual-patient-simulation-systems";
+
 export const navItems = [
   ["Home", "/"],
-  ["Products", "/adv-medicare-limited/"],
-  ["Events", "/blog/"],
+  ["Products", productPath],
+  ["Events", "/newsroom/"],
   ["Publications", "/publications"],
   ["Contact", "/contact/"],
 ];
@@ -60,18 +77,14 @@ export const footerSections = [
   {
     title: "Products",
     links: [
-      { label: "Products", to: "/adv-medicare-limited/" },
-      { label: "Virtual Patient Simulation Systems", to: "/adv-medicare-limited/" },
-      { label: "Personalized Deep Features", to: "/adv-medicare-limited/" },
-      { label: "Real-World Data Search", to: "/adv-medicare-limited/" },
+      { label: "Virtual Patient Simulation Systems", to: productPath },
+      { label: "Personalized Deep Features", to: productPath },
+      { label: "Real-World Data Search", to: productPath },
     ],
   },
   {
     title: "Newsroom",
-    links: [
-      { label: "Newsroom", to: "/blog/" },
-      { label: "Events", to: "/blog/" },
-    ],
+    links: [{ label: "Newsroom", to: "/newsroom/" }],
   },
   {
     title: "Publications",
@@ -82,19 +95,11 @@ export const footerSections = [
   },
   {
     title: "Contact Adv",
-    links: [
-      { label: "Contact Adv", to: "/contact/" },
-      { label: "Email", href: `mailto:${contactDetails.email}` },
-      { label: "Location", href: contactDetails.mapUrl },
-    ],
+    links: [{ label: "Contact Adv", to: "/contact/" }],
   },
   {
     title: "About ADV",
-    links: [
-      { label: "About ADV", to: "/about-us/" },
-      { label: "Advantage Data Vision", to: "/" },
-      { label: "ADV Medicare Limited", to: "/adv-medicare-limited/" },
-    ],
+    links: [{ label: "About ADV", to: "/about-us/" }],
   },
   {
     title: "Career",

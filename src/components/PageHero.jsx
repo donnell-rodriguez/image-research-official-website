@@ -11,7 +11,7 @@ export function PageHero({ eyebrow, title, text, image }) {
         <h1>{title}</h1>
         <p>{text}</p>
       </div>
-      {image && <img src={image} alt="" />}
+      {image && <img src={image} alt={`${title} hero image`} />}
     </section>
   );
 }

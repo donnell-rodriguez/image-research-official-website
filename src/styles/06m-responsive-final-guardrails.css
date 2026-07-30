@@ -1,0 +1,513 @@
+/* Final viewport guardrail: this must stay last so tablet/mobile cannot overflow. */
+@media (max-width: 1180px) {
+  html,
+  body,
+  #root,
+  main,
+  .site-shell,
+  .home-shell,
+  .template-shell,
+  .about-page,
+  .newsroom-page,
+  .newsroom-article-page,
+  .contact-page-band,
+  .career-page-section,
+  .products-overview-section,
+  .adv-medicare-product-flow,
+  .adv-medicare-ai-flow {
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  img,
+  svg,
+  canvas,
+  video,
+  iframe {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .site-header-inner,
+  .footer-inner,
+  .products-overview-inner,
+  .products-overview-heading,
+  .product-flow-card,
+  .products-overview-notes,
+  .adv-medicare-product-flow .section-heading,
+  .adv-medicare-ai-flow .section-heading,
+  .ai-workflow-web,
+  .home-contact-layout,
+  .contact-page-band .home-contact-layout {
+    width: min(100%, calc(100vw - 48px));
+    max-width: min(var(--site-content-width), 900px);
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+  }
+
+  .product-flow-diagram {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    gap: 14px;
+    justify-items: center;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .product-flow-summary,
+  .product-flow-vps,
+  .product-flow-arrow-forward,
+  .product-flow-deep,
+  .product-flow-arrow-exchange,
+  .product-flow-search,
+  .product-flow-arrow-vertical,
+  .product-flow-qr {
+    grid-column: auto;
+    grid-row: auto;
+    width: min(100%, 460px);
+    max-width: 100%;
+  }
+
+  .product-flow-exchange {
+    display: grid;
+    width: min(100%, 460px);
+    max-width: 100%;
+    gap: 14px;
+    justify-items: center;
+  }
+
+  .product-flow-node {
+    display: grid;
+    grid-template-rows: none;
+    width: 100%;
+    justify-items: center;
+  }
+
+  .product-flow-node h3 {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .product-flow-node img {
+    width: auto;
+    max-width: min(100%, 360px);
+  }
+
+  .product-flow-arrow,
+  .product-flow-arrow-vertical,
+  .ai-workflow-arrow {
+    display: grid;
+    width: 100%;
+    height: 28px;
+    min-height: 0;
+    margin: 0;
+    place-items: center;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .product-flow-arrow::after,
+  .product-flow-arrow-vertical::after {
+    display: none;
+  }
+
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-vertical::before,
+  .ai-workflow-arrow::after {
+    position: static;
+    display: block;
+    width: auto;
+    height: auto;
+    border: 0;
+    color: var(--brand-tech);
+    filter: none;
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1;
+    transform: none;
+  }
+
+  .product-flow-arrow-forward::before,
+  .ai-workflow-arrow::after {
+    content: "↓";
+  }
+
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-vertical::before {
+    content: "↕";
+  }
+
+  .adv-medicare-ai-flow .ai-workflow-web,
+  .ai-workflow-web {
+    display: flex;
+    flex-direction: column;
+    max-width: 760px;
+    gap: 14px;
+    align-items: center;
+  }
+
+  .ai-workflow-block,
+  .ai-workflow-input-block,
+  .ai-workflow-model-block,
+  .ai-workflow-output-block {
+    display: grid;
+    grid-column: auto;
+    width: 100%;
+    min-width: 0;
+    justify-items: center;
+  }
+
+  .ai-workflow-output-block {
+    overflow: hidden;
+  }
+
+  .ai-output-original {
+    width: min(100%, 565px);
+    max-width: 100%;
+    max-height: none;
+    object-fit: contain;
+  }
+
+  .home-contact-layout,
+  .contact-page-band .home-contact-layout {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    align-items: start;
+  }
+
+  .contact-copy,
+  .contact-map {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .site-header-inner,
+  .footer-inner,
+  .products-overview-inner,
+  .products-overview-heading,
+  .product-flow-card,
+  .products-overview-notes,
+  .adv-medicare-product-flow .section-heading,
+  .adv-medicare-ai-flow .section-heading,
+  .ai-workflow-web,
+  .home-contact-layout,
+  .contact-page-band .home-contact-layout {
+    width: min(100%, calc(100vw - 36px));
+    max-width: 430px;
+  }
+
+  .product-flow-card {
+    padding: 24px 16px 30px;
+  }
+
+  .product-flow-node h3 {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .product-flow-node img {
+    max-width: min(100%, 300px);
+  }
+
+  .ai-input-card {
+    grid-template-columns: 1fr;
+    width: min(100%, 245px);
+  }
+
+  .ai-model-graphic {
+    width: min(100%, 220px);
+  }
+
+  .ai-output-original {
+    width: min(100%, 330px);
+  }
+
+  .contact-map {
+    aspect-ratio: 4 / 3;
+    min-height: 260px;
+  }
+}
+
+@media (min-width: 761px) and (max-width: 1180px) {
+  .products-overview-heading,
+  .product-flow-card,
+  .adv-medicare-product-flow .product-flow-card {
+    width: min(100%, 860px);
+    max-width: calc(100vw - 48px);
+  }
+
+  .product-flow-card {
+    padding: 28px clamp(18px, 3vw, 34px) 34px;
+  }
+
+  .product-flow-diagram {
+    grid-template-columns: minmax(0, 1fr) clamp(58px, 8vw, 82px) minmax(0, 1fr);
+    grid-template-rows: auto auto clamp(62px, 7vw, 78px) auto;
+    gap: 18px clamp(14px, 2.5vw, 24px);
+    align-items: center;
+    justify-items: center;
+  }
+
+  .product-flow-summary {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 0 4px;
+    justify-self: start;
+  }
+
+  .product-flow-vps {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .product-flow-arrow-forward {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .product-flow-deep {
+    grid-column: 3;
+    grid-row: 2;
+  }
+
+  .product-flow-arrow-exchange {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .product-flow-exchange {
+    display: contents;
+    width: auto;
+    max-width: none;
+  }
+
+  .product-flow-search {
+    grid-column: 1;
+    grid-row: 4;
+  }
+
+  .product-flow-arrow-vertical {
+    grid-column: 2;
+    grid-row: 4;
+  }
+
+  .product-flow-qr {
+    grid-column: 3;
+    grid-row: 4;
+  }
+
+  .product-flow-vps,
+  .product-flow-arrow-forward,
+  .product-flow-deep,
+  .product-flow-search,
+  .product-flow-arrow-vertical,
+  .product-flow-qr {
+    width: 100%;
+    max-width: none;
+  }
+
+  .product-flow-node {
+    grid-template-rows: auto minmax(150px, auto) auto;
+    width: 100%;
+    row-gap: 10px;
+  }
+
+  .product-flow-node h3 {
+    min-height: 44px;
+    align-items: end;
+    font-size: clamp(18px, 2.4vw, 22px);
+    line-height: 1.15;
+  }
+
+  .product-flow-node img {
+    width: auto;
+    max-width: 100%;
+  }
+
+  .product-flow-vps img {
+    max-width: min(100%, 248px);
+  }
+
+  .product-flow-deep img {
+    max-width: min(100%, 310px);
+  }
+
+  .product-flow-search img {
+    max-width: min(100%, 204px);
+  }
+
+  .product-flow-qr img {
+    max-width: min(100%, 178px);
+  }
+
+  .product-flow-arrow,
+  .product-flow-arrow-vertical {
+    position: relative;
+    display: block;
+    width: clamp(54px, 7vw, 72px);
+    height: 34px;
+    min-height: 34px;
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-vertical::before {
+    position: absolute;
+    top: calc(50% - 2px);
+    right: 10px;
+    left: 4px;
+    display: block;
+    width: auto;
+    height: 0;
+    border: 0;
+    border-top: 4px solid var(--brand-tech);
+    border-radius: 999px;
+    color: inherit;
+    content: "";
+    font-size: 0;
+    transform: none;
+  }
+
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-vertical::after {
+    position: absolute;
+    top: 50%;
+    right: 4px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    border-top: 4px solid var(--brand-tech);
+    border-right: 4px solid var(--brand-tech);
+    background: transparent;
+    content: "";
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .product-flow-arrow-exchange {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: clamp(62px, 7vw, 78px);
+    margin: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .product-flow-arrow-exchange::before {
+    position: absolute;
+    top: 6px;
+    right: 25%;
+    bottom: 10px;
+    left: 25%;
+    display: block;
+    width: auto;
+    height: auto;
+    border: 0;
+    border-left: 4px solid var(--brand-tech);
+    border-right: 4px solid var(--brand-tech);
+    border-bottom: 4px solid var(--brand-tech);
+    border-radius: 0 0 18px 0;
+    background: transparent;
+    box-shadow: none;
+    color: inherit;
+    content: "";
+    font-size: 0;
+    transform: none;
+  }
+
+  .product-flow-arrow-exchange::after {
+    position: absolute;
+    bottom: 1px;
+    left: calc(25% - 8px);
+    display: block;
+    width: 16px;
+    height: 16px;
+    border-right: 4px solid var(--brand-tech);
+    border-bottom: 4px solid var(--brand-tech);
+    background: transparent;
+    content: "";
+    transform: rotate(45deg);
+  }
+}
+
+@media (max-width: 1180px) {
+  .ai-workflow-model-block {
+    grid-template-rows: auto auto;
+  }
+
+  .ai-model-graphic-wrap {
+    position: relative;
+    width: min(100%, 560px);
+    height: clamp(230px, 34vw, 310px);
+    min-height: 0;
+    align-items: center;
+    overflow: visible;
+  }
+
+  .ai-model-graphic {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: clamp(190px, 24vw, 250px);
+    max-width: none;
+    max-height: none;
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .products-overview-section {
+    padding-bottom: 32px;
+  }
+
+  .ai-workflow-web {
+    gap: 8px;
+  }
+
+  .ai-model-graphic-wrap {
+    width: min(100%, 390px);
+    height: clamp(196px, 54vw, 242px);
+  }
+
+  .ai-model-graphic {
+    width: clamp(158px, 44vw, 190px);
+  }
+
+  .ai-workflow-output-block {
+    grid-template-rows: auto auto;
+    gap: 12px;
+    align-content: start;
+  }
+
+  .ai-output-heading {
+    min-height: 0;
+    margin: 0;
+    gap: 4px;
+  }
+
+  .ai-output-heading h3 {
+    min-height: 0;
+    margin: 0;
+  }
+
+  .ai-output-heading p {
+    margin: 0;
+    line-height: 1.24;
+  }
+
+  .ai-output-original {
+    align-self: start;
+    margin: 0;
+  }
+}

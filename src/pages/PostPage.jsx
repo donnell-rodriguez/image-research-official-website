@@ -1,12 +1,13 @@
 import { Link, useParams } from "@tanstack/react-router";
 import { Icon, SocialIcon } from "../components/Icon";
 import { LoadingPage, NotFound } from "../components/SystemPages";
-import { siteImages } from "../data/site";
+import { siteImages, siteUrl } from "../data/site";
 import { usePost, usePosts } from "../hooks/useContent";
+import { useSeo } from "../hooks/useSeo";
 import { formatDate } from "../lib/date";
+import { getArticleInlineImageAlt, getPostImageAlt } from "../lib/imageAlt";
 
 const NEWS_LIMIT = 14;
-const SITE_URL = "https://adv-medical.com.hk";
 
 function getLabel(index) {
   if (index === 3) return "Quick Read";
@@ -18,7 +19,9 @@ function normalizeUrl(value = "") {
   return String(value || "").replace(/^https?:\/\/[^/]+/i, "");
 }
 
-function prepareArticleHtml(html = "", featuredImage) {
+function prepareArticleHtml(post) {
+  const html = post?.html || "";
+  const featuredImage = post?.featuredImage;
   if (typeof DOMParser === "undefined") return html;
 
   const parser = new DOMParser();
@@ -32,16 +35,19 @@ function prepareArticleHtml(html = "", featuredImage) {
     removable.remove();
   }
 
-  root?.querySelectorAll("img").forEach((image) => {
+  root?.querySelectorAll("img").forEach((image, index) => {
     image.setAttribute("loading", "lazy");
     image.setAttribute("decoding", "async");
+    if (!image.getAttribute("alt")?.trim()) {
+      image.setAttribute("alt", getArticleInlineImageAlt(post, index));
+    }
   });
 
   return root?.innerHTML || html;
 }
 
 function ShareLinks({ post, compact = false }) {
-  const articleUrl = `${SITE_URL}${post.path}`;
+  const articleUrl = `${siteUrl}${post.path}`;
   const encodedUrl = encodeURIComponent(articleUrl);
   const encodedTitle = encodeURIComponent(post.title);
 
@@ -71,7 +77,7 @@ function ArticleLeadImage({ post }) {
 
   return (
     <figure className={post.featuredImage ? "article-lead-media" : "article-lead-media article-lead-logo"}>
-      <img src={src} alt="" fetchPriority="high" decoding="async" />
+      <img src={src} alt={getPostImageAlt(post)} fetchPriority="high" decoding="async" />
     </figure>
   );
 }
@@ -80,7 +86,12 @@ function RelatedArticle({ post, index }) {
   return (
     <Link to={post.path} className="article-related-item">
       <div className={post.featuredImage ? "article-related-image" : "article-related-image article-related-logo"}>
-        <img src={post.featuredImage || siteImages.logo} alt="" loading="lazy" decoding="async" />
+        <img
+          src={post.featuredImage || siteImages.logo}
+          alt={getPostImageAlt(post)}
+          loading="lazy"
+          decoding="async"
+        />
       </div>
       <div>
         <p className="newsroom-label">{getLabel(index)}</p>
@@ -95,11 +106,11 @@ function NewsroomCta() {
   return (
     <section className="article-newsroom-cta" aria-label="ADV Newsroom">
       <h2>
-        <img src={siteImages.logo} alt="" loading="lazy" decoding="async" />
+        <img src={siteImages.logo} alt="Advantage Data Vision logo" loading="lazy" decoding="async" />
         Newsroom
       </h2>
       <p>The latest news and updates, direct from ADV.</p>
-      <Link to="/blog/">Read more</Link>
+      <Link to="/newsroom/">Read more</Link>
     </section>
   );
 }
@@ -108,6 +119,13 @@ export function PostPage() {
   const params = useParams({ strict: false });
   const { data: post, isLoading } = usePost(params.slug);
   const { data: posts } = usePosts();
+  useSeo({
+    title: post?.title || "Newsroom",
+    description: post?.excerpt || "Read the latest Advantage Data Vision newsroom update.",
+    path: post?.path || `/${params.slug || ""}`,
+    image: post?.featuredImage || siteImages.hero,
+    type: "article",
+  });
 
   if (isLoading) return <LoadingPage />;
   if (!post) return <NotFound />;
@@ -116,7 +134,7 @@ export function PostPage() {
   const currentIndex = latestPosts.findIndex((item) => item.slug === post.slug);
   const relatedPosts = currentIndex >= 0 ? latestPosts.slice(currentIndex + 1, currentIndex + 4) : [];
   const labelIndex = currentIndex >= 0 ? currentIndex : 0;
-  const cleanedHtml = prepareArticleHtml(post.html, post.featuredImage);
+  const cleanedHtml = prepareArticleHtml(post);
 
   return (
     <article className="newsroom-article-page">

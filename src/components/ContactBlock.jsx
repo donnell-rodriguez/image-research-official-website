@@ -19,8 +19,8 @@ export function ContactBlock({ showLogos = true, ctaMode = "route" }) {
     <>
       {showLogos ? (
         <div className="contact-logo-strip" aria-label="Selected partners">
-          {siteImages.contactLogos.map((src) => (
-            <img key={src} src={src} alt="" loading="lazy" decoding="async" />
+          {siteImages.contactLogos.map((logo) => (
+            <img key={logo.src} src={logo.src} alt={logo.alt} loading="lazy" decoding="async" />
           ))}
         </div>
       ) : null}
@@ -34,18 +34,18 @@ export function ContactBlock({ showLogos = true, ctaMode = "route" }) {
             <p>” {siteTagline} “</p>
           </blockquote>
           <div className="social-links" aria-label="Social links">
-            <a href="#" aria-label="Facebook">
+            <span aria-label="Facebook">
               <SocialIcon name="facebook" />
-            </a>
-            <a href="#" aria-label="Twitter">
+            </span>
+            <span aria-label="Twitter">
               <SocialIcon name="twitter" />
-            </a>
-            <a href="#" aria-label="YouTube">
+            </span>
+            <span aria-label="YouTube">
               <SocialIcon name="youtube" />
-            </a>
-            <a href="#" aria-label="Skype">
+            </span>
+            <span aria-label="Skype">
               <SocialIcon name="skype" />
-            </a>
+            </span>
           </div>
           <address className="contact-list">
             <span>

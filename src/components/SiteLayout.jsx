@@ -1,8 +1,9 @@
 import React from "react";
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { footerLegalLinks, footerSections, navItems, siteImages } from "../data/site";
+import { footerLegalLinks, footerSections, navItems, productPath, siteImages } from "../data/site";
 import { usePosts } from "../hooks/useContent";
 import { useRevealAnimations, useSummaryMotion } from "../hooks/usePageEffects";
+import { CookieConsent } from "./CookieConsent";
 import { Icon } from "./Icon";
 
 function isCurrentPostPath(post, pathname) {
@@ -24,8 +25,8 @@ export function SiteLayout() {
   const hasHeroHeader =
     isHome ||
     [
-      "/adv-medicare-limited/",
-      "/blog/",
+      `${productPath}/`,
+      "/newsroom/",
       "/career/",
       "/contact/",
       "/publications/",
@@ -43,6 +44,15 @@ export function SiteLayout() {
     window.addEventListener("scroll", updateHeaderState, { passive: true });
     return () => window.removeEventListener("scroll", updateHeaderState);
   }, []);
+
+  React.useEffect(() => {
+    document.documentElement.classList.toggle("nav-lock", menuOpen);
+    return () => document.documentElement.classList.remove("nav-lock");
+  }, [menuOpen]);
+
+  React.useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useRevealAnimations();
   useSummaryMotion(pathname);
@@ -71,6 +81,7 @@ export function SiteLayout() {
           <button
             className="icon-button menu-button"
             type="button"
+            aria-expanded={menuOpen}
             aria-label={menuOpen ? "Close navigation" : "Open navigation"}
             onClick={() => setMenuOpen((value) => !value)}
           >
@@ -94,6 +105,7 @@ export function SiteLayout() {
         <Outlet />
       </main>
       <Footer currentPost={currentPost} />
+      <CookieConsent />
     </div>
   );
 }
@@ -111,7 +123,7 @@ function Footer({ currentPost }) {
           </span>
           {currentPost ? (
             <>
-              <Link to="/blog/">Newsroom</Link>
+              <Link to="/newsroom/">Newsroom</Link>
               <span className="footer-chevron" aria-hidden="true">
                 ›
               </span>

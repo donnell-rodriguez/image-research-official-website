@@ -1,7 +1,17 @@
 import { ContactBlock } from "../components/ContactBlock";
 import { InnerPageHero } from "../components/InnerPageHero";
+import { siteImages } from "../data/site";
+import { useSeo } from "../hooks/useSeo";
 
 export function ContactPage() {
+  useSeo({
+    title: "Contact ADV",
+    description:
+      "Contact Advantage Data Vision for product enquiries, clinical collaboration, partnerships, publications, and healthcare AI discussions.",
+    path: "/contact/",
+    image: siteImages.contactMap,
+  });
+
   return (
     <>
       <InnerPageHero

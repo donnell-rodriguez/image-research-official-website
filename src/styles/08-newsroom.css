@@ -632,8 +632,8 @@
 .article-newsroom-cta {
   display: grid;
   place-items: center;
-  margin: clamp(54px, 8vw, 86px) calc(clamp(18px, 5vw, 64px) * -1) 0;
-  padding: clamp(46px, 7vw, 70px) 18px;
+  margin: clamp(24px, 4vw, 38px) calc(clamp(18px, 5vw, 64px) * -1) 0;
+  padding: clamp(32px, 5vw, 48px) 18px;
   background: var(--page-bg);
   color: #1d1d1f;
   text-align: center;
@@ -673,8 +673,8 @@
   justify-content: center;
   border-radius: 999px;
   padding: 0 20px;
-  background: #e8e8ed;
-  color: #1d1d1f;
+  background: var(--brand-cta);
+  color: #ffffff;
   font-size: 14px;
   font-weight: 800;
   text-decoration: none;
@@ -699,7 +699,7 @@
   }
 
   .article-newsroom-cta a:hover {
-    background: #dedee3;
+    background: var(--brand-tech);
   }
 }
 
@@ -779,6 +779,12 @@
 
   .article-related-item time {
     font-size: 15px;
+  }
+
+  .article-newsroom-cta {
+    margin-top: 24px;
+    padding-top: 30px;
+    padding-bottom: 34px;
   }
 }
 

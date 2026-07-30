@@ -2,7 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { InnerPageHero } from "../components/InnerPageHero";
 import { siteImages } from "../data/site";
 import { usePosts } from "../hooks/useContent";
+import { useSeo } from "../hooks/useSeo";
 import { formatDate } from "../lib/date";
+import { getPostImageAlt } from "../lib/imageAlt";
 
 const NEWS_LIMIT = 14;
 
@@ -18,7 +20,7 @@ function NewsImage({ post, className = "" }) {
 
   return (
     <div className={`newsroom-image ${imageClassName}`}>
-      <img src={src} alt="" loading="lazy" decoding="async" />
+      <img src={src} alt={getPostImageAlt(post)} loading="lazy" decoding="async" />
     </div>
   );
 }
@@ -90,6 +92,13 @@ function CompactArticle({ post, index }) {
 
 export function BlogPage() {
   const { data: posts } = usePosts();
+  useSeo({
+    title: "Newsroom",
+    description:
+      "Read Advantage Data Vision news, product updates, medical AI events, clinical validation milestones, awards, and partnership announcements.",
+    path: "/newsroom/",
+    image: posts[0]?.featuredImage || siteImages.hero,
+  });
   const newsPosts = posts.slice(0, NEWS_LIMIT);
   const [featuredPost, ...remainingPosts] = newsPosts;
   const leadPosts = remainingPosts.slice(0, 2);

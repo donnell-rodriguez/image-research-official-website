@@ -1,0 +1,233 @@
+/* Final actual EOF medium product flow arrows: precise directions and spacing. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    display: block !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    box-shadow: none !important;
+  }
+
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::before,
+  .product-flow-arrow-vertical::after {
+    display: none !important;
+    content: "" !important;
+  }
+
+  .product-flow-arrow-forward {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: clamp(62px, 7vw, 82px) !important;
+    height: 42px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 12px 0 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 42'%3E%3Cpath d='M21 21H75' fill='none' stroke='#189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M8 21 25 10v22Z' fill='#189818'/%3E%3Cpath d='M88 21 71 10v22Z' fill='#189818'/%3E%3C/svg%3E") !important;
+  }
+
+  .product-flow-arrow-exchange {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    height: clamp(74px, 8.5vw, 96px) !important;
+    margin: 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90'%3E%3Cpath d='M18 72 C34 54 48 38 68 18' fill='none' stroke='#189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M73 13 68 34 53 19Z' fill='#189818'/%3E%3C/svg%3E") !important;
+    background-position: 58% 42% !important;
+    background-size: clamp(54px, 7vw, 78px) clamp(54px, 7vw, 78px) !important;
+  }
+
+  .product-flow-arrow-vertical {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+    width: clamp(62px, 7vw, 82px) !important;
+    height: 42px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 90'%3E%3Cpath d='M72 18 C54 34 38 48 18 72' fill='none' stroke='#189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M13 77 18 56 33 71Z' fill='#189818'/%3E%3C/svg%3E") !important;
+  }
+}
+
+/* Final actual EOF small product flow typography and arrows. */
+@media (max-width: 760px) {
+  .product-flow-vps h3,
+  .product-flow-deep h3,
+  .product-flow-search h3 {
+    min-height: 0 !important;
+    font-size: clamp(12px, 3.15vw, 15px) !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+  }
+
+  .product-flow-arrow,
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    margin: 2px 0 8px !important;
+    border: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .product-flow-arrow::before,
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-vertical::before {
+    position: absolute !important;
+    top: 1px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    display: block !important;
+    width: 6px !important;
+    height: 14px !important;
+    border: 0 !important;
+    border-radius: 999px !important;
+    background: var(--brand-tech) !important;
+    content: "" !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .product-flow-arrow::after,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::after {
+    position: absolute !important;
+    top: 10px !important;
+    bottom: auto !important;
+    left: 50% !important;
+    right: auto !important;
+    display: block !important;
+    width: 18px !important;
+    height: 18px !important;
+    border: 0 !important;
+    border-right: 7px solid var(--brand-tech) !important;
+    border-bottom: 7px solid var(--brand-tech) !important;
+    background: transparent !important;
+    content: "" !important;
+    transform: translateX(-50%) rotate(45deg) !important;
+  }
+}
+
+/* Final actual EOF medium product flow arrows: explicit requested directions. */
+@media (min-width: 761px) and (max-width: 1180px) {
+  .product-flow-diagram {
+    grid-template-columns: minmax(0, 1fr) clamp(72px, 9vw, 106px) minmax(0, 1fr) !important;
+    grid-template-rows: auto auto clamp(104px, 12vw, 134px) auto !important;
+    gap: 14px clamp(12px, 2.4vw, 24px) !important;
+    align-items: center !important;
+    justify-items: center !important;
+  }
+
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    z-index: 4 !important;
+    display: block !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+    box-shadow: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+    visibility: visible !important;
+  }
+
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::before,
+  .product-flow-arrow-vertical::after {
+    display: none !important;
+    content: "" !important;
+  }
+
+  .product-flow-arrow-forward {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+    width: clamp(62px, 8vw, 94px) !important;
+    height: 44px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 24px 0 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 44'%3E%3Cpath d='M12 22H72' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M88 22 68 9v26Z' fill='%23189818'/%3E%3C/svg%3E") !important;
+  }
+
+  .product-flow-arrow-exchange {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    height: clamp(104px, 12vw, 134px) !important;
+    align-self: center !important;
+    justify-self: stretch !important;
+    margin: -8px 0 -4px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 620 150'%3E%3Cpath d='M410 16 210 134' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M424 8 402 14 416 31Z' fill='%23189818'/%3E%3Cpath d='M196 142 218 136 204 119Z' fill='%23189818'/%3E%3C/svg%3E") !important;
+    background-position: 50% 50% !important;
+    background-size: min(74%, 520px) 100% !important;
+  }
+
+  .product-flow-arrow-vertical {
+    grid-column: 2 !important;
+    grid-row: 4 !important;
+    width: clamp(68px, 8.5vw, 104px) !important;
+    height: 44px !important;
+    align-self: center !important;
+    justify-self: center !important;
+    margin: 10px 0 0 !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 104 44'%3E%3Cpath d='M24 22H80' fill='none' stroke='%23189818' stroke-width='5' stroke-linecap='round'/%3E%3Cpath d='M8 22 28 9v26Z' fill='%23189818'/%3E%3Cpath d='M96 22 76 9v26Z' fill='%23189818'/%3E%3C/svg%3E") !important;
+  }
+}
+
+/* Final actual EOF small product flow arrows: single down-arrow glyph at all three positions. */
+@media (max-width: 760px) {
+  .product-flow-arrow,
+  .product-flow-arrow-forward,
+  .product-flow-arrow-exchange,
+  .product-flow-arrow-vertical {
+    position: relative !important;
+    display: block !important;
+    width: 100% !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    margin: 2px 0 10px !important;
+    border: 0 !important;
+    background-color: transparent !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 56 44'%3E%3Cpath d='M28 5v18' fill='none' stroke='%23189818' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M13 20 28 35 43 20' fill='none' stroke='%23189818' stroke-width='7' stroke-linecap='square' stroke-linejoin='miter'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: 48px 38px !important;
+    box-shadow: none !important;
+  }
+
+  .product-flow-arrow::before,
+  .product-flow-arrow::after,
+  .product-flow-arrow-forward::before,
+  .product-flow-arrow-forward::after,
+  .product-flow-arrow-exchange::before,
+  .product-flow-arrow-exchange::after,
+  .product-flow-arrow-vertical::before,
+  .product-flow-arrow-vertical::after {
+    display: none !important;
+    content: "" !important;
+  }
+}

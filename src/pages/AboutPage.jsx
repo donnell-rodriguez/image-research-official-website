@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { siteImages } from "../data/site";
+import { useSeo } from "../hooks/useSeo";
 
 const metrics = [
   ["2021", "Research journey started at The Hong Kong Polytechnic University"],
@@ -78,6 +79,14 @@ const faqs = [
 ];
 
 export function AboutPage() {
+  useSeo({
+    title: "About ADV",
+    description:
+      "Learn about Advantage Data Vision, a PolyU-incubated medical AI company translating healthcare data into clinical decision support systems.",
+    path: "/about-us/",
+    image: siteImages.team,
+  });
+
   return (
     <article className="about-page">
       <section className="about-hero">

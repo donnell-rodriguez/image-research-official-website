@@ -4,3 +4,5 @@ target/
 dist/
 audit-screenshots/
 .DS_Store
+adv-medical-bluehost-dist*.zip
+adv-medical-bluehost-dist*/

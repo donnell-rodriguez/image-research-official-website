@@ -1,0 +1,20 @@
+@media (max-width: 1180px) {
+  .ai-model-graphic-wrap {
+    height: clamp(220px, 30vw, 300px);
+  }
+
+  .ai-model-graphic {
+    width: min(100%, clamp(430px, 58vw, 560px));
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 760px) {
+  .ai-model-graphic-wrap {
+    height: clamp(160px, 46vw, 210px);
+  }
+
+  .ai-model-graphic {
+    width: min(100%, clamp(280px, 92vw, 430px));
+  }
+}

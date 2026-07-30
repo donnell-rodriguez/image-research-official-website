@@ -296,6 +296,27 @@ b {
   font-weight: var(--weight-subheading);
 }
 
+.latest-section .article-card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.latest-section .article-card p {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+.latest-section .article-card .text-link {
+  margin-top: clamp(34px, 3.2vw, 48px);
+}
+
 .contact-copy h2 strong,
 .projects-section .product-copy h2 strong,
 .partners-band .section-heading h2 strong {
