@@ -1,7 +1,7 @@
 import React from "react";
-import { siteImages, siteTagline, siteUrl } from "../data/site";
+import { filedSiteName, siteImages, siteTagline, siteUrl } from "../data/site";
 
-const defaultTitle = "Advantage Data Vision";
+const defaultTitle = filedSiteName;
 const defaultDescription =
   "Advantage Data Vision builds AI-powered healthcare decision-support systems for precision oncology, virtual patient simulation, and real-world data search.";
 
@@ -11,9 +11,8 @@ function absoluteUrl(value = "/") {
   return `${siteUrl}${path}`;
 }
 
-function normalizeTitle(title) {
-  if (!title) return defaultTitle;
-  return title.includes("Advantage Data Vision") ? title : `${title} | Advantage Data Vision`;
+function normalizeTitle() {
+  return defaultTitle;
 }
 
 function normalizeDescription(description) {

@@ -1,6 +1,7 @@
 # Advantage Data Vision Official Website
 
-Static official website source for `https://adv-medical.com.hk/`.
+Static official website source for `https://www.adv-medicare.com/`. The legacy
+`https://adv-medical.com.hk/` deployment remains independent of this release.
 
 ## Stack
 
@@ -11,7 +12,8 @@ Static official website source for `https://adv-medical.com.hk/`.
 - Static media under `public/assets`
 
 The project does not require a runtime backend. Build output is written to `dist/`
-and can be uploaded to Bluehost, served by nginx, or deployed to any static host.
+and is delivered in production by the immutable Docker image defined in this
+repository.
 
 ## Scripts
 

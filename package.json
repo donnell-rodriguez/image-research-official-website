@@ -2,6 +2,7 @@
   "name": "advantage-data-vision-official-website",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@11.19.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5178",
@@ -11,7 +12,8 @@
     "audit:content": "node scripts/audit_content_routes.mjs",
     "audit:perf": "node scripts/audit_performance_budget.mjs",
     "preview": "vite preview --host 0.0.0.0 --port 4178",
-    "verify": "npm run audit:assets && npm run audit:alt && npm run audit:content && npm run build && npm run audit:perf"
+    "audit:deployment": "node scripts/audit_deployment_metadata.mjs",
+    "verify": "npm run audit:assets && npm run audit:alt && npm run audit:content && npm run build && npm run audit:deployment && npm run audit:perf"
   },
   "dependencies": {
     "@tanstack/react-router": "^1.121.21",

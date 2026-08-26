@@ -1,0 +1,68 @@
+{
+  email yunfanxiang@adv-medical.com.hk
+  log default {
+    format filter {
+      request>headers>Authorization delete
+      request>headers>Cookie delete
+      request>headers>Proxy-Authorization delete
+      request>headers>X-Api-Key delete
+      request>headers>X-Csrf-Token delete
+      request>headers>X-Worker-Token delete
+      wrap json
+    }
+  }
+  servers {
+    protocols h1 h2
+  }
+}
+
+adv-medicare.com {
+  @legacyApi path /api/* /health
+  handle @legacyApi {
+    reverse_proxy adv-medical-vps-160918-frontend-1:80
+  }
+
+  handle {
+    redir https://www.adv-medicare.com{uri} 308
+  }
+}
+
+www.adv-medicare.com {
+  encode zstd gzip
+
+  # Remove the legacy system redirects and same-origin API bridge after 2026-09-02.
+  @legacySystemRoutes path /2d-dicom.html /3d-dicom.html /account-center.html /admin-dashboard.html /ai-fifo.html /classification.html /ct.html /feature-importance.html /gene-feature.html /gene.html /immune-adaptiveness.html /immunotherapy-adaptiveness.html /immunotherapy-response.html /index.html /login.html /mdt-report.html /model-feature.html /network-config.html /patient-management.html /register.html /segmentation.html /similar-cases.html /tanstack.html
+  handle @legacySystemRoutes {
+    redir https://system.adv-medicare.com{uri} 308
+  }
+
+  @legacyApi path /api/* /health
+  handle @legacyApi {
+    reverse_proxy adv-medical-vps-160918-frontend-1:80
+  }
+
+  handle {
+    reverse_proxy adv-medical-official-website:80
+  }
+}
+
+system.adv-medicare.com {
+  encode zstd gzip
+  reverse_proxy adv-medical-vps-160918-frontend-1:80
+}
+
+api.adv-medicare.com {
+  encode zstd gzip
+
+  @allowed path /health /v2 /v2/* /v1/api /v1/api/*
+  handle @allowed {
+    reverse_proxy adv-medical-vps-160918-api-1:9000 {
+      header_up X-Forwarded-For {remote_host}
+      header_up X-Real-IP {remote_host}
+    }
+  }
+
+  handle {
+    respond "Not Found" 404
+  }
+}

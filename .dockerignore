@@ -1,0 +1,9 @@
+.git
+.github
+.tmp-assets
+audit-screenshots
+dist
+node_modules
+npm-debug.log*
+pnpm-debug.log*
+adv-medical-bluehost-dist-final-verified-20260730.zip

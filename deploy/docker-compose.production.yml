@@ -1,0 +1,26 @@
+services:
+  official-website:
+    image: ${OFFICIAL_WEBSITE_IMAGE:?OFFICIAL_WEBSITE_IMAGE must be set}
+    container_name: adv-medical-official-website
+    restart: unless-stopped
+    networks:
+      adv-medical:
+        aliases:
+          - adv-medical-official-website
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx:uid=101,gid=101,mode=0750
+      - /var/run:uid=101,gid=101,mode=0750
+
+networks:
+  adv-medical:
+    external: true
+    name: adv-medical-vps-160918_default

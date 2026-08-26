@@ -6,4 +6,4 @@ Disallow: /home-free-3
 Disallow: /home-free-4
 Disallow: /checkout-2
 
-Sitemap: https://adv-medical.com.hk/sitemap.xml
+Sitemap: https://www.adv-medicare.com/sitemap.xml

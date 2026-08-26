@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-const siteUrl = "https://adv-medical.com.hk";
+const siteUrl = "https://www.adv-medicare.com";
+const filedSiteName = "东莞优数医疗大数据有限公司";
 const distDir = path.resolve("dist");
 const indexFile = path.join(distDir, "index.html");
 const siteIndexFile = path.resolve("public/content/site-index.json");
@@ -17,9 +18,8 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;");
 }
 
-function titleWithBrand(title) {
-  if (!title) return "Advantage Data Vision";
-  return title.includes("Advantage Data Vision") ? title : `${title} | Advantage Data Vision`;
+function titleWithBrand() {
+  return filedSiteName;
 }
 
 function normalizePath(value) {

@@ -1,6 +1,15 @@
 import React from "react";
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
-import { footerLegalLinks, footerSections, navItems, productPath, siteImages } from "../data/site";
+import {
+  filedSiteName,
+  footerLegalLinks,
+  footerSections,
+  icpRecordNumber,
+  icpRecordUrl,
+  navItems,
+  productPath,
+  siteImages,
+} from "../data/site";
 import { usePosts } from "../hooks/useContent";
 import { useRevealAnimations, useSummaryMotion } from "../hooks/usePageEffects";
 import { CookieConsent } from "./CookieConsent";
@@ -157,6 +166,15 @@ function Footer({ currentPost }) {
 
         <div className="footer-legal">
           <p>Copyright © 2026 Adv Inc. All rights reserved.</p>
+          <a
+            className="footer-icp-record"
+            href={icpRecordUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label={`${filedSiteName} ICP record ${icpRecordNumber}`}
+          >
+            {icpRecordNumber}
+          </a>
           <nav aria-label="Legal links">
             {footerLegalLinks.map((link) => (
               link.to ? (
