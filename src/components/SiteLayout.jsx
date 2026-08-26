@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Outlet, useRouterState } from "@tanstack/react-router";
 import {
+  copyrightNotice,
   filedSiteName,
   footerLegalLinks,
   footerSections,
@@ -165,7 +166,7 @@ function Footer({ currentPost }) {
         </nav>
 
         <div className="footer-legal">
-          <p>Copyright © 2026 Adv Inc. All rights reserved.</p>
+          <p>{copyrightNotice}</p>
           <a
             className="footer-icp-record"
             href={icpRecordUrl}

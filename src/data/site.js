@@ -58,6 +58,8 @@ export const icpRecordNumber = "粤ICP备2026092521号-1";
 export const icpRecordUrl = "https://beian.miit.gov.cn/";
 export const systemLoginUrl = "https://system.adv-medicare.com/login.html";
 export const siteUrl = "https://www.adv-medicare.com";
+export const contactEmail = "yunfanxiang@adv-medicare.com";
+export const copyrightNotice = "© 2026 Advantage Data Vision（东莞优数医疗大数据有限公司）. 版权所有。";
 
 export const productPath = "/products/virtual-patient-simulation-systems";
 
@@ -72,7 +74,7 @@ export const navItems = [
 export const contactDetails = {
   address: "11 Yuk Choi Road, Hung Hom, Kowloon, Hong Kong",
   phone: "+852 3400 8561",
-  email: "yunfanxiang@adv-medical.com.hk",
+  email: contactEmail,
   mapUrl:
     "https://www.google.com/maps/search/?api=1&query=The%20Hong%20Kong%20Polytechnic%20University%2C%2011%20Yuk%20Choi%20Road%2C%20Hung%20Hom%2C%20Hong%20Kong",
 };
