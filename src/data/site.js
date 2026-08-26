@@ -56,10 +56,9 @@ export const siteTagline =
 export const filedSiteName = "东莞优数医疗大数据有限公司";
 export const icpRecordNumber = "粤ICP备2026092521号-1";
 export const icpRecordUrl = "https://beian.miit.gov.cn/";
-export const systemLoginUrl = "https://system.adv-medicare.com/login.html";
 export const siteUrl = "https://www.adv-medicare.com";
 export const contactEmail = "yunfanxiang@adv-medicare.com";
-export const copyrightNotice = "© 2026 Advantage Data Vision（东莞优数医疗大数据有限公司）. 版权所有。";
+export const copyrightNotice = "© 2026 Advantage Data Vision（东莞优数医疗大数据有限公司）版权所有。";
 
 export const productPath = "/products/virtual-patient-simulation-systems";
 
@@ -118,5 +117,4 @@ export const footerLegalLinks = [
   { label: "Terms of Use", to: "/terms-of-use/" },
   { label: "Legal", to: "/legal/" },
   { label: "Site Map", to: "/site-map/" },
-  { label: "System Login", href: systemLoginUrl },
 ];

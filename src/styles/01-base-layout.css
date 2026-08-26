@@ -685,8 +685,9 @@ h3 {
 
 .footer-legal {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: max-content auto max-content;
   align-items: center;
+  justify-content: space-between;
   gap: 10px 24px;
   padding-top: 12px;
   color: rgba(255, 255, 255, 0.62);
@@ -694,12 +695,14 @@ h3 {
 
 .footer-legal p {
   margin: 0;
+  white-space: nowrap;
 }
 
 .footer-legal nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: flex-end;
+  white-space: nowrap;
 }
 
 .footer-icp-record {
@@ -730,7 +733,12 @@ h3 {
     text-align: center;
   }
 
+  .footer-legal p {
+    white-space: normal;
+  }
+
   .footer-legal nav {
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
