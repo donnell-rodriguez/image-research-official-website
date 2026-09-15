@@ -7,6 +7,9 @@ services:
       adv-medical:
         aliases:
           - adv-medical-official-website
+      nginx-gateway:
+        aliases:
+          - adv-medical-official-website
     healthcheck:
       test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1/healthz"]
       interval: 30s
@@ -24,3 +27,6 @@ networks:
   adv-medical:
     external: true
     name: adv-medical-vps-160918_default
+  nginx-gateway:
+    external: true
+    name: nginx-gateway-network

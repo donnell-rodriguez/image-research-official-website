@@ -1,0 +1,36 @@
+services:
+  gateway:
+    volumes:
+      - ./adv-medical.com.conf:/etc/nginx/conf.d/adv-medical.com.conf:ro
+      - ./proxy_params:/etc/nginx/proxy_params:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+      - adv_medical_caddy_data:/etc/caddy-data:ro
+    command:
+      - /bin/sh
+      - -c
+      - |
+        while sleep 21600; do nginx -s reload; done &
+        exec nginx -g 'daemon off;'
+
+  certbot:
+    image: certbot/certbot:v4.0.0
+    restart: unless-stopped
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        trap exit TERM
+        while :; do
+          certbot renew --quiet
+          sleep 43200 &
+          wait $$!
+        done
+
+volumes:
+  adv_medical_caddy_data:
+    external: true
+    name: adv-medical-vps-160918-edge_caddy_data
