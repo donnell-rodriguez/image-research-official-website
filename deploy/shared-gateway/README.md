@@ -31,6 +31,16 @@ The long-running Certbot service checks renewal twice per day. The gateway
 reload loop reopens renewed certificate files every six hours without
 restarting the container.
 
+## Desktop update hostname
+
+`update.adv-medicare.com.conf` is appended once to the active Adv Medical
+`.com` file so that it can use the existing file bind mount. On a new
+installation, apply the HTTP block first, verify the ACME webroot, and use
+the same Certbot webroot with `--cert-name update.adv-medicare.com` and
+`-d update.adv-medicare.com`. Apply the HTTPS block after issuance, then run
+`nginx -t` and reload. The HTTPS site serves a placeholder response until
+the desktop model publisher is deployed.
+
 The external `nginx-gateway-network` must contain these aliases before enabling
 the virtual hosts:
 
